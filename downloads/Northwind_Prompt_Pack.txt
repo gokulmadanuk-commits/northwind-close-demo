@@ -48,11 +48,11 @@ PROMPT 4. BUILD THE LEDGER
 ------------------------------------------------------------------------
 Build a Beancount ledger for FY26 at Close_2026-03/ledger.beancount.
 
-**Accounts:** open every account in ERP_Export/Chart_of_Accounts.csv, named <Type>:<Section>:<Code>-<NameInCamelCase>.
+Accounts: open every account in ERP_Export/Chart_of_Accounts.csv, named <Type>:<Section>:<Code>-<NameInCamelCase>.
 
-**History:** post the 31 March 2025 opening balances, then one summary journal for each closed month from April to February, all taken from ERP_Export/Monthly_Trial_Balances_FY26.csv.
+History: post the 31 March 2025 opening balances, then one summary journal for each closed month from April to February, all taken from ERP_Export/Monthly_Trial_Balances_FY26.csv.
 
-**March, in full detail:**
+March, in full detail:
 - sales invoices
 - customer receipts against open AR
 - supplier invoices, with VAT exactly as shown on each document
@@ -65,7 +65,7 @@ Build a Beancount ledger for FY26 at Close_2026-03/ledger.beancount.
 - the loan payment
 - bank fees
 
-**Rules:** follow the FY25 accounting policies. Book costs in the month the service relates to. Put receipt: metadata on every entry, pointing to its filed document. Run bean-check after every write and fix any error before moving on.
+Rules: follow the FY25 accounting policies. Book costs in the month the service relates to. Put receipt: metadata on every entry, pointing to its filed document. Run bean-check after every write and fix any error before moving on.
 
 PROMPT 5. RECONCILE TO STATEMENTS
 ------------------------------------------------------------------------
