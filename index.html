@@ -215,453 +215,60 @@ table.simple td.n,table.simple th.n{text-align:right;font-variant-numeric:tabula
 }
 .kpis.k3{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width:640px){.kpis.k3{grid-template-columns:1fr}}
+
+/* v5: statement toggles, view bar, waterfall, nav footer, contact popup */
+.srow .c{width:32px;flex:0 0 32px;display:flex;align-items:center;font-size:inherit}
+.srow .tg{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--tealbg);border:1px solid #C3DADF;color:var(--teal);transition:background .15s,color .15s}
+.srow .tg svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .18s ease}
+.srow.open .tg svg{transform:rotate(90deg)}
+.srow.leaf .tg{background:var(--card);border-color:var(--line)}
+.srow:hover .tg{background:var(--teal);border-color:var(--teal);color:#fff}
+.srow:focus-visible{outline:2px solid var(--teal);outline-offset:-2px}
+.srow.flash{animation:rowflash 1.8s ease}
+@keyframes rowflash{0%,45%{background:var(--amberbg)}100%{background:transparent}}
+.viewbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 12px}
+.viewbar .seg{margin-left:auto}
+.treetools{display:flex;gap:8px;flex-wrap:wrap}
+.treetools .btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.wfwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.wfwrap .wf2{min-width:660px;display:block}
+.wf2 text{font-size:12px;fill:var(--ink3)}
+.wf2 .wv{font-family:var(--fc);font-weight:600;font-size:15px;fill:var(--ink)}
+.wf2 .wl{font-size:12.5px;fill:var(--ink2)}
+.wfb{cursor:pointer;outline:none}
+.wfb:hover rect:nth-child(2),.wfb:focus-visible rect:nth-child(2){filter:brightness(1.12)}
+.wfb:focus-visible rect:first-child{stroke:var(--teal);stroke-width:1.5}
+.navfoot .resetrow{display:flex;align-items:center;gap:8px}
+.navfoot .resetrow .btn{width:auto}
+.resetrow .btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.resetrow .copied{font-size:13px;color:var(--pos);font-weight:600}
+.helpnote{font-size:13.5px;line-height:1.45;color:var(--ink2);margin:14px 0 6px}
+.helpnote .sig{display:block;margin-top:5px;color:var(--ink);font-weight:600}
+.linkbtn{border:0;background:none;padding:2px 0;color:var(--teal);font-weight:600;font-size:14px;cursor:pointer;font-family:inherit}
+.linkbtn:hover{text-decoration:underline}
+.modal{position:fixed;inset:0;background:rgba(20,35,44,.45);display:grid;place-items:center;z-index:60;padding:16px}
+.modal[hidden]{display:none}
+body.modalopen{overflow:hidden}
+.mcard{position:relative;background:var(--card);border-radius:16px;box-shadow:0 30px 80px rgba(20,35,44,.3);padding:38px 42px;max-width:620px;width:100%}
+.mclose{position:absolute;top:10px;right:12px;border:0;background:none;font-size:28px;line-height:1;color:var(--ink3);cursor:pointer;width:38px;height:38px;border-radius:8px}
+.mclose:hover{background:#EEF1F0;color:var(--ink)}
+.ccard{display:flex;gap:30px;align-items:center}
+.cphoto{width:150px;height:150px;border-radius:50%;object-fit:cover;flex:0 0 150px;box-shadow:0 0 0 6px var(--tealbg)}
+.cphoto.mono{display:grid;place-items:center;background:var(--teal);color:#fff;font-family:var(--fc);font-size:54px;font-weight:700}
+.ccard h2{font-family:var(--fc);font-size:42px;font-weight:700;margin:0 0 14px;line-height:1}
+.ccard .clist{display:grid;gap:11px}
+.ccard .clist a{display:flex;align-items:center;gap:10px;font-size:17px;color:var(--ink);text-decoration:none;word-break:break-word}
+.ccard .clist a:hover{color:var(--teal);text-decoration:underline}
+.ccard .clist svg{width:22px;height:22px;stroke:var(--teal);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 22px}
+@media (max-width:560px){.ccard{flex-direction:column;text-align:center;gap:20px}.ccard .clist a{justify-content:center}.mcard{padding:34px 20px 26px}.cphoto{width:128px;height:128px;flex-basis:128px}}
+@media (max-width:860px){.viewbar .seg{margin-left:0}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important}}
 @media print{#nav,#topbar{display:none}#main{margin:0}}
-
-/* Walkthrough deck */
-.deckwrap{padding:22px 28px 30px;max-width:1240px;margin:0 auto}
-.deckbar{display:flex;align-items:center;gap:10px;margin:0 0 12px;flex-wrap:wrap}
-.deckbar h1{font-family:var(--fc);font-size:26px;font-weight:700;margin:0;flex:1 1 auto}
-.deckbar .stamp{margin-right:6px}
-.stagebox{position:relative;width:100%;aspect-ratio:16/9;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 12px 40px rgba(20,35,44,.08)}
-.stage{position:absolute;left:0;top:0;width:1280px;height:720px;transform-origin:0 0}
-.slide{position:absolute;inset:0;padding:54px 70px;display:none;font-family:var(--f);color:var(--ink)}
-.slide.on{display:block}
-.slide h2{font-family:var(--fc);font-weight:700;font-size:58px;line-height:1.02;letter-spacing:-.5px;margin:0 0 14px;max-width:16ch}
-.slide .sub{font-size:24px;color:var(--ink2);max-width:46ch;line-height:1.35;margin:0}
-.slide .small{font-size:17px;color:var(--ink3)}
-.illus{position:absolute;right:22px;bottom:16px;font-size:14px;color:var(--ink3);background:#F3F6F5;border:1px solid var(--line2);padding:3px 10px;border-radius:20px}
-.deckctl{display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
-.dots{display:flex;gap:5px;flex:1 1 auto;flex-wrap:wrap}
-.dots button{width:26px;height:6px;border-radius:3px;border:0;background:var(--line);cursor:pointer;padding:0}
-.dots button[aria-current="true"]{background:var(--amber)}
-.dots button.seen{background:var(--teal3)}
-.notes{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;display:none;font-size:15.5px;color:var(--ink2)}
-.notes.on{display:block}
-.notes b{color:var(--ink)}
-.deckhelp{font-size:13.5px;color:var(--ink3)}
-.stagebox:fullscreen{border:0;border-radius:0;background:#fff;width:100vw;height:100vh;aspect-ratio:auto}
-.stagebox:-webkit-full-screen{width:100vw;height:100vh}
-.fsnav{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:none;gap:8px;z-index:5}
-.stagebox:fullscreen .fsnav{display:flex}
-
-/* route line (steps) */
-.route{position:absolute;left:70px;right:70px;top:26px;height:30px}
-.route .track{position:absolute;left:0;right:0;top:13px;height:3px;background:var(--line)}
-.route .done{position:absolute;left:0;top:13px;height:3px;background:var(--teal);transition:width .8s ease}
-.route .stop{position:absolute;top:5px;transform:translateX(-50%);text-align:center;font-size:13px;color:var(--ink3);white-space:nowrap}
-.route .stop i{display:block;width:19px;height:19px;border-radius:50%;background:#fff;border:3px solid var(--line);margin:0 auto 5px}
-.route .stop.past i{border-color:var(--teal);background:var(--teal)}
-.route .stop.now i{border-color:var(--amber);background:var(--amber);box-shadow:0 0 0 6px rgba(240,165,0,.22)}
-.route .stop.now{color:var(--ink);font-weight:600}
-.stepslide{padding-top:96px}
-.stepslide h2{font-size:46px;max-width:none}
-.cols{display:grid;grid-template-columns:330px 1fr;gap:36px;align-items:start;margin-top:12px}
-.cols .say{font-size:21px;line-height:1.4;color:var(--ink2)}
-.cols .say b{color:var(--ink)}
-
-/* mock window (generic, illustration) */
-.win{background:#FBFCFC;border:1px solid #CFD8D8;border-radius:12px;box-shadow:0 18px 50px rgba(20,35,44,.13);overflow:hidden;height:500px;display:grid;grid-template-rows:34px 1fr}
-.win .bar{background:#F1F4F4;border-bottom:1px solid #DCE3E3;display:flex;align-items:center;gap:7px;padding:0 12px;font-size:13px;color:var(--ink3)}
-.win .bar i{width:10px;height:10px;border-radius:50%;background:#D5DCDC;display:inline-block}
-.win .bar span{margin-left:10px}
-.win .body{display:grid;grid-template-columns:190px 1fr;min-height:0}
-.win .rail{border-right:1px solid #E3E9E9;padding:14px 12px;font-size:14px;color:var(--ink2);background:#F7F9F9}
-.win .rail .chip{display:flex;align-items:center;gap:7px;background:#fff;border:1px solid #DCE3E3;border-radius:8px;padding:7px 9px;margin-bottom:10px;font-size:13.5px}
-.win .rail .chip svg{width:15px;height:15px;stroke:var(--teal);fill:none;stroke-width:2}
-.win .main{padding:16px 20px;overflow:hidden;position:relative;min-height:0}
-.msg{max-width:92%;border-radius:12px;padding:10px 14px;font-size:15.5px;line-height:1.45;margin-bottom:10px}
-.msg.user{background:var(--tealbg);margin-left:auto;color:var(--ink)}
-.msg.ai{background:#fff;border:1px solid #E3E9E9}
-.msg .who{font-size:12.5px;color:var(--ink3);margin-bottom:3px}
-.caret::after{content:"";display:inline-block;width:2px;height:1em;background:var(--ink);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.tree{font-size:14.5px;line-height:1.75;color:var(--ink2)}
-.tree div{opacity:0;transform:translateY(6px);transition:all .35s ease}
-.tree div.in{opacity:1;transform:none}
-.tree .fold::before{content:"▸ ";color:var(--teal)}
-.tree .file{padding-left:20px;color:var(--ink3)}
-.dialog{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%) scale(.96);width:430px;background:#fff;border:1px solid #CFD8D8;border-radius:12px;box-shadow:0 20px 50px rgba(20,35,44,.2);padding:16px;opacity:0;transition:all .35s ease}
-.dialog.in{opacity:1;transform:translate(-50%,-50%) scale(1)}
-.dialog .dt{font-weight:600;margin-bottom:8px}
-.dialog .opt{padding:8px 10px;border-radius:7px;font-size:15px;display:flex;gap:8px;align-items:center}
-.dialog .opt.sel{background:var(--tealbg);color:var(--teal);font-weight:600}
-.dialog .go{float:right;margin-top:8px}
-.conn{display:flex;align-items:center;gap:14px;border:1px solid #E3E9E9;background:#fff;border-radius:10px;padding:14px 16px;margin-bottom:10px}
-.conn .lg{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;font-family:var(--fc);font-weight:700;color:#fff;font-size:19px}
-.conn .nm{flex:1;font-size:17px;font-weight:600}
-.conn .nm span{display:block;font-size:14px;color:var(--ink3);font-weight:400}
-.tog{width:48px;height:27px;border-radius:14px;background:#CBD5D5;position:relative;transition:background .3s}
-.tog::after{content:"";position:absolute;left:3px;top:3px;width:21px;height:21px;border-radius:50%;background:#fff;transition:left .3s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
-.tog.on{background:var(--pos)}
-.tog.on::after{left:24px}
-.filing{display:grid;grid-template-columns:1fr 1.15fr;gap:16px;height:100%}
-.inbox .em{display:flex;gap:9px;align-items:center;padding:6px 8px;border-radius:7px;font-size:14px;color:var(--ink2);transition:all .3s}
-.inbox .em.go{background:var(--amberbg);color:var(--ink)}
-.inbox .em.done{opacity:.4}
-.inbox .em .pi{font-size:12px;background:#EEF1F0;border-radius:4px;padding:1px 6px;color:var(--ink3)}
-.folders .fd{margin-bottom:6px;font-size:14px}
-.folders .fd > b{display:block;font-weight:600;color:var(--teal)}
-.folders .fl{font-size:13.5px;color:var(--ink2);padding-left:14px;font-variant-numeric:tabular-nums;opacity:0;transform:translateX(-10px);transition:all .4s}
-.folders .fl.in{opacity:1;transform:none}
-.check{list-style:none;padding:0;margin:8px 0}
-.check li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid #EEF1F0;font-size:16px;opacity:0;transform:translateY(8px);transition:all .4s}
-.check li.in{opacity:1;transform:none}
-.check .st{flex:0 0 auto;font-size:13px;font-weight:600;border-radius:20px;padding:2px 9px;margin-top:1px}
-.st.ok{background:var(--posbg);color:var(--pos)}
-.st.wait{background:var(--amberbg);color:var(--amberdk)}
-.st.info{background:var(--tealbg);color:var(--teal)}
-.ledger{font-size:14px;font-variant-numeric:tabular-nums}
-.ledger .lr{display:grid;grid-template-columns:66px 1fr 92px 120px;gap:10px;padding:5px 2px;border-bottom:1px dashed #E3E9E9;opacity:0;transition:opacity .25s}
-.ledger .lr.in{opacity:1}
-.ledger .lr span:last-child{text-align:right}
-.ticks{margin-top:12px}
-.tick{display:flex;gap:10px;align-items:center;font-size:17px;padding:7px 0;opacity:0;transform:scale(.98);transition:all .35s}
-.tick.in{opacity:1;transform:none}
-.tick .tb{width:26px;height:26px;border-radius:50%;background:var(--pos);color:#fff;display:grid;place-items:center;font-weight:700;font-size:15px}
-.tick.warn .tb{background:var(--amber);color:#2B1E00}
-.qa{display:grid;gap:12px}
-.qa .q{background:#fff;border:1px solid #E3E9E9;border-radius:12px;padding:12px 16px;opacity:0;transform:translateY(10px);transition:all .45s}
-.qa .q.in{opacity:1;transform:none}
-.qa .q .qq{font-size:16.5px;color:var(--ink)}
-.qa .q .aa{font-size:16px;color:var(--pos);margin-top:6px;opacity:0;transition:opacity .4s}
-.qa .q .aa.in{opacity:1}
-.adjs{display:grid;gap:8px}
-.adjc{display:grid;grid-template-columns:30px 1fr 120px 104px;gap:10px;align-items:center;background:#fff;border:1px solid #E3E9E9;border-radius:10px;padding:9px 13px;font-size:15px;opacity:0;transform:translateX(16px);transition:all .4s}
-.adjc.in{opacity:1;transform:none}
-.adjc b.id{font-family:var(--fc);font-size:20px;color:var(--teal)}
-.adjc .am{text-align:right;font-family:var(--fc);font-size:20px;font-weight:600}
-.adjc .dc{font-size:13.5px;font-weight:600;border-radius:20px;padding:3px 10px;text-align:center;opacity:0;transition:opacity .3s}
-.adjc .dc.in{opacity:1}
-.adjc.decl .am{color:var(--ink3);text-decoration:line-through}
-.bridge{display:flex;align-items:flex-end;gap:14px;height:150px;margin-top:16px;padding:0 4px;border-bottom:2px solid var(--line)}
-.bridge .bb{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;font-size:14px;color:var(--ink2);height:100%}
-.bridge .bb .bv{font-family:var(--fc);font-size:19px;font-weight:600;color:var(--ink)}
-.bridge .bb .bar{width:70%;border-radius:4px 4px 0 0;transition:height .7s ease;height:0}
-.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
-.flow .fc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-height:220px;opacity:.15;transition:opacity .5s, box-shadow .5s}
-.flow .fc.in{opacity:1;box-shadow:0 10px 30px rgba(20,35,44,.08)}
-.flow .fc h4{margin:0 0 8px;font-family:var(--fc);font-size:24px;font-weight:600}
-.flow .fc .r{display:flex;justify-content:space-between;font-size:14.5px;padding:3px 0;border-bottom:1px dashed #E9EEED;font-variant-numeric:tabular-nums}
-.flow .fc .r.t{font-weight:700;border-bottom:0}
-.flow .arrow{color:var(--amber)}
-.postedline{margin-top:16px;display:flex;align-items:center;gap:16px;font-size:19px;opacity:0;transition:opacity .4s}
-.postedline.in{opacity:1}
-.postedline .pbtn{background:var(--teal);color:#fff;border-radius:8px;padding:8px 14px;font-weight:600}
-.counters{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:30px}
-.counter{border-top:4px solid var(--teal);padding-top:10px}
-.counter .cv{font-family:var(--fc);font-size:64px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
-.counter .cl{font-size:17px;color:var(--ink2);margin-top:6px}
-.counter.amb{border-top-color:var(--amber)}
-.needs{margin-top:40px;display:flex;gap:18px;align-items:center;font-size:24px;opacity:0;transition:opacity .6s}
-.needs.in{opacity:1}
-.needs b{font-family:var(--fc);font-size:30px}
-.shoebox{position:absolute;left:70px;right:70px;top:230px;bottom:40px}
-.srcard{position:absolute;width:228px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:0 10px 24px rgba(20,35,44,.08);opacity:0;transition:all .55s cubic-bezier(.2,.9,.3,1.2)}
-.srcard.in{opacity:1}
-.srcard .sn{font-weight:600;font-size:17px}
-.srcard .sd{font-size:14px;color:var(--ink3);margin-top:2px}
-.srcard .ic{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;margin-bottom:8px}
-.srcard .ic svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.facts3{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
-.fact{border-left:4px solid var(--amber);padding-left:14px}
-.fact .fv{font-family:var(--fc);font-size:58px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
-.fact .fl{font-size:18px;color:var(--ink2);margin-top:6px}
-.closing{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
-.closing a{font-size:22px;padding:14px 24px;border-radius:10px}
-.titlemark{display:flex;align-items:center;gap:16px;margin-bottom:60px;opacity:0;transition:opacity .6s}
-.titlemark.in{opacity:1}
-.titlemark svg{width:56px;height:56px}
-.titlemark span{font-size:20px;color:var(--ink2)}
-.t1 h2{font-size:84px;max-width:15ch;opacity:0;transform:translateY(16px);transition:all .8s ease}
-.t1 h2.in{opacity:1;transform:none}
-.t1 .sub{opacity:0;transition:opacity .8s .3s}
-.t1 .sub.in{opacity:1}
-.t1 .roadline{position:absolute;left:70px;bottom:80px;height:4px;width:0;background:var(--amber);transition:width 1.4s ease .2s;border-radius:2px}
-.t1 .roadline.in{width:420px}
-.final .slide *{transition:none!important}
-.mobhint{display:none}
-@media (max-width:860px){.deckwrap{padding:14px 10px 30px}.deckbar h1{font-size:22px}.deckhelp{display:none}.deckctl{flex-wrap:nowrap}.deckctl .dots{display:none}.deckctl [data-go="1"]{margin-left:auto}.mobhint{display:block;font-size:14px;color:var(--ink3);margin-top:12px}.mobhint a{color:var(--teal);font-weight:600}}
-/* v2 step layout: headline, one line, full-width visual */
-.stepslide h2{font-size:44px;margin:0 0 6px}
-.stepsub{font-size:21px;color:var(--ink2);margin:0 0 16px;max-width:none}
-.vis .win{height:452px}
-.vis.two{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:start}
-.win .bar .ill{margin-left:auto;font-style:normal;font-size:12.5px;color:var(--ink3);background:#fff;border:1px solid #DCE3E3;border-radius:20px;padding:1px 9px}
-.win .body{grid-template-columns:170px 1fr}
-.filing{grid-template-columns:1fr 1.5fr}
-.qa .q .qq{font-size:18px}.qa .q .aa{font-size:17.5px}
-.qa{max-width:1000px}
-.check li{font-size:17px}
-/* v3 fixes */
-.shoebox{top:262px}
-.slide[data-k="1"] .sub{max-width:none}
-.t1 h2{max-width:none}
-.routebox{position:absolute;left:70px;right:70px;bottom:64px;height:60px}
-.routebox .route{left:0;right:0;top:0}
-.routebox .roadline{position:absolute;left:0;top:13px;height:3px;width:0;background:var(--amber);transition:width 1.6s ease;border-radius:2px;z-index:0}
-.routebox .roadline.in{width:100%}
-.route.static .stop{z-index:1}
-.routelabel{position:absolute;right:0;top:-34px;font-family:var(--fc);font-weight:600;font-size:20px;color:var(--pos)}
-.slide .routebox .route .done{display:block}
-.bookgrid{display:grid;grid-template-columns:1.55fr 1fr;gap:22px;align-items:start}
-.bookgrid .ticks{margin-top:0}
-.bookgrid .tick{font-size:16px;align-items:flex-start}
-.bookgrid .tick .tb{flex:0 0 26px}
-.wf{opacity:0;transition:opacity .6s}
-.wf.in{opacity:1}
-.vis.two{grid-template-columns:1.3fr 1fr}
-.needs{display:block;margin-top:48px;font-size:26px;max-width:46ch;line-height:1.35}
-.needs b{font-size:inherit;font-family:var(--f)}
-/* v4: five-slide deck */
-.pop{opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease}
-.pop.in{opacity:1;transform:none}
-.slide .sub.pop{max-width:none}
-.s1 .titlemark{margin-bottom:30px}
-.s1 h2{font-size:84px;max-width:none}
-.facts5{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;margin-top:58px}
-.facts5 .fact .fv{font-size:56px}
-.capstrip{display:flex;gap:12px;flex-wrap:wrap;margin-top:58px}
-.capstrip span{background:#F3F6F5;border:1px solid var(--line2);border-radius:999px;padding:9px 18px;font-size:18px;color:var(--ink)}
-.capstrip b{font-weight:600;color:var(--teal);margin-right:9px}
-.inflow{display:grid;grid-template-columns:1fr 110px 290px;align-items:center;gap:16px;margin-top:44px}
-.ingrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.inc{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px;min-height:82px;box-shadow:0 6px 18px rgba(20,35,44,.06);opacity:0;transform:scale(.94);transition:all .4s cubic-bezier(.2,.9,.3,1.2)}
-.inc.in{opacity:1;transform:none}
-.inc .ic{flex:0 0 36px;width:36px;height:36px;border-radius:9px;display:grid;place-items:center}
-.inc .ic svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.inc .sn{font-weight:600;font-size:17px;line-height:1.2}
-.inc .sd{font-size:14px;color:var(--ink3);margin-top:2px;line-height:1.25}
-.inarrow{width:110px;height:40px;stroke:var(--amber);stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:160;stroke-dashoffset:160;transition:stroke-dashoffset .6s ease}
-.inarrow.in{stroke-dashoffset:0}
-.incore{background:var(--teal);color:#fff;border-radius:16px;padding:26px 24px;opacity:.12;transition:opacity .6s,box-shadow .6s}
-.incore.in{opacity:1;box-shadow:0 18px 44px rgba(14,90,107,.28)}
-.incore .fchip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border-radius:8px;padding:6px 11px;font-size:15px}
-.incore .fchip svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2}
-.incore .cl{font-family:var(--fc);font-weight:700;font-size:40px;line-height:1.05;margin:18px 0 8px}
-.incore .cs{font-size:16.5px;opacity:.88;line-height:1.35}
-.plist{display:grid;grid-template-columns:1fr 1fr;grid-auto-flow:column;grid-template-rows:repeat(5,auto);gap:8px 34px;margin-top:30px}
-.pr{display:flex;gap:14px;align-items:flex-start;border-top:1px solid var(--line);padding:12px 4px 4px;opacity:0;transform:translateY(8px);transition:all .4s}
-.pr.in{opacity:1;transform:none}
-.pr .pn{flex:0 0 36px;width:36px;height:36px;border-radius:50%;background:var(--tealbg);color:var(--teal);font-family:var(--fc);font-weight:700;font-size:19px;display:grid;place-items:center}
-.pr.cfo .pn{background:var(--amber);color:#2B1E00}
-.pr .pt{font-weight:600;font-size:21px;display:flex;align-items:center;gap:10px}
-.pr .po{font-size:16.5px;color:var(--ink2);margin-top:2px}
-.cfotag{font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:var(--amberbg);color:var(--amberdk);border-radius:999px;padding:2px 9px;font-family:var(--f)}
-.out{display:grid;grid-template-columns:410px 1fr;gap:40px;align-items:center;margin-top:26px}
-.ostats{display:grid;gap:20px}
-.os{border-left:4px solid var(--teal);padding:4px 0 4px 16px;opacity:0;transform:translateX(-10px);transition:all .45s}
-.os.in{opacity:1;transform:none}
-.os.amb{border-left-color:var(--amber)}
-.os .ov{font-family:var(--fc);font-weight:700;font-size:58px;line-height:1;font-variant-numeric:tabular-nums}
-.os .ol{font-size:17px;color:var(--ink2);margin-top:5px;line-height:1.3}
-.out .wf{max-width:470px;width:100%;justify-self:center}
-.odel{margin-top:14px;font-size:18px;color:var(--ink3)}
-.prof{display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center;height:100%}
-.pleft{display:flex;gap:46px;align-items:center}
-.avatar{width:220px;height:220px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-family:var(--fc);font-weight:700;font-size:84px;letter-spacing:1px;object-fit:cover;flex:0 0 220px;box-shadow:0 0 0 10px var(--tealbg)}
-.prof h2{font-size:76px;max-width:none;margin-bottom:24px}
-.clist{display:grid;gap:16px}
-.clist a{display:flex;align-items:center;gap:14px;font-size:25px;color:var(--ink);text-decoration:none}
-.clist a:hover{color:var(--teal)}
-.clist svg{width:28px;height:28px;stroke:var(--teal);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 28px}
-.qrs{display:grid;gap:22px}
-.qrs figure{margin:0;text-align:center;width:200px}
-.qrs svg{width:176px;height:176px;display:block;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px}
-.qrs figcaption{font-size:15px;color:var(--ink2);margin-top:8px;line-height:1.3}
-.slide h2.pop{max-width:none}
-.facts5{margin-top:72px}
-.capstrip{margin-top:70px}
-.inflow{margin-top:64px}
-.ingrid{gap:16px}
-.inc{min-height:104px;padding:16px}
-.inc .ic{flex:0 0 42px;width:42px;height:42px}
-.inc .ic svg{width:22px;height:22px}
-.inc .sn{font-size:19px}
-.inc .sd{font-size:15px}
-.incore{padding:30px 26px}
-.incore .cl{font-size:44px}
 </style>
 </head>
 <body><div class="page"><p>Loading the Northwind demo…</p></div>
 <noscript><div class="page"><p>This demo needs JavaScript.</p></div></noscript>
-<script>/* Walkthrough deck: five short animated slides. Figures are quoted from the real run. */
-(function(){
-'use strict';
-const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const gbp = (n, dp=0) => (n<0?'-':'') + '£' + Math.abs(n).toLocaleString('en-GB',{minimumFractionDigits:dp,maximumFractionDigits:dp});
-const gbpm = n => '£' + (n/1e6).toFixed(2) + 'm';
-const MARK = '<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2L38 20 20 38 2 20z" fill="#0E5A6B"/><path d="M14 27V13h2.6l7 9.4V13H26v14h-2.5l-7.1-9.5V27z" fill="#fff"/></svg>';
-const STOPS = ['Folder', 'Email', 'Collect', 'Gaps', 'Book', 'Judge', 'Adjust', 'Accounts'];
-const ILL = '';
-const route = k => `<div class="route"><div class="track"></div><div class="done" style="width:${Math.max(0, Math.min(1, k/(STOPS.length-1)))*100}%"></div>${STOPS.map((s,i) => `<div class="stop ${i<k?'past':i===k?'now':''}" style="left:${i/(STOPS.length-1)*100}%"><i></i>${s}</div>`).join('')}</div>`;
-const routeAt = (k, label) => `<div class="routebox">${route(k).replace('class="route"', 'class="route static"')}${label ? `<div class="routelabel">${label}</div>` : ''}<div class="roadline"></div></div>`;
-function wf(A){
-  const items = A.items.filter(a => a.dec === 'approved'); const steps = [['Reported', A.reported, 1]].concat(items.map(a => [a.id, a.amt, 0])).concat([['Adjusted', A.adjusted, 1]]);
-  const W = 500, H = 400, top = 30, bot = 340; let run = 0; const segs = [];
-  for (const [n, v, tot] of steps){ if (tot){ segs.push([n, 0, v, tot]); run = v; } else { segs.push([n, run, run + v, 0]); run += v; } }
-  const vals = segs.flatMap(s => s[3] ? [s[2]] : [s[1], s[2]]); const lo = Math.min(...vals) - 120000, hi = Math.max(...vals) + 40000;
-  const y = v => bot - (Math.max(v, lo) - lo) / (hi - lo) * (bot - top); const bw = W / segs.length;
-  let g = `<line x1="0" x2="${W}" y1="${bot}" y2="${bot}" stroke="#D9E0DF" stroke-width="2"/>`;
-  segs.forEach(([n, a, b, tot], i) => { const x = i*bw + bw*0.16, w = bw*0.68, y0 = tot ? y(b) : y(Math.max(a, b)), h = tot ? bot - y(b) : Math.max(3, Math.abs(y(a) - y(b)));
-    const col = tot ? (n === 'Adjusted' ? '#F0A500' : '#0E5A6B') : (b >= a ? '#1F7A4D' : '#B3412F');
-    const lab = tot ? '£' + (b/1e6).toFixed(2) + 'm' : (b >= a ? '+' : '−') + '£' + Math.round(Math.abs(b - a)/1000) + 'k';
-    g += `<rect x="${x}" y="${y0}" width="${w}" height="${h}" rx="3" fill="${col}"/><text x="${x + w/2}" y="${y0 - 9}" text-anchor="middle" font-family="Barlow Condensed" font-weight="600" font-size="21" fill="#14232C">${lab}</text><text x="${x + w/2}" y="${bot + 26}" text-anchor="middle" font-family="Barlow" font-size="16" fill="#4A5B64">${n}</text>`; });
-  return `<svg viewBox="0 0 ${W} ${H + 10}" width="100%" role="img" aria-label="Reported to Adjusted EBITDA">${g}<text x="0" y="${H + 6}" font-family="Barlow" font-size="13" fill="#7A8A92">Axis starts above zero so the adjustments are visible.</text></svg>`;
-}
-const win = (title, rail, main) => `<div class="win"><div class="bar"><i></i><i></i><i></i><span>${esc(title)}</span><em class="ill">Illustration · text quoted from the real run</em></div><div class="body"><div class="rail">${rail}</div><div class="main">${main}</div></div></div>`;
-const FOLD = '<svg viewBox="0 0 24 24"><path d="M3 6h7l2 2h9v11H3z"/></svg>';
-const rail = (R, extra='') => `<div class="chip">${FOLD}Northwind</div>${extra}<div style="margin-top:14px;font-size:13px;color:#7A8A92">Session</div><div style="font-size:13.5px">March close</div>`;
-const SRC_IC = {
-  mail:'<path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/>', portal:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',
-  bank:'<path d="M3 10h18M5 10v8M9 10v8M15 10v8M19 10v8M3 20h18M12 3l9 5H3z"/>', card:'<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/>',
-  erp:'<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 9v11"/>', lock:'<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
-  photo:'<rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M9 7l1.5-3h3L15 7"/>', doc:'<path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h5"/>'};
-
-const ICON = {
-  mail:'<path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/>',
-  link:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2.5 2.5 0 0 1 5 0v4M12 10v7"/>',
-  web:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>'};
-const STEPS = [
-  ['Scope and set up', '8 kinds of source read; payroll password requested', 1],
-  ['Collect and file', '50 documents registered, 27 filed by supplier', 0],
-  ['Find missing documents', '49 statement lines matched; 1 invoice requested', 0],
-  ['Build the ledger', '74 March entries, each linked to its document', 1],
-  ['Reconcile', '77 balance checks, no differences', 0],
-  ['Judgement calls', '19 items, answered in one message', 1],
-  ['Year-end journals', '4 journals, with workings', 0],
-  ['EBITDA adjustments', '6 found in invoice lines; 4 approved', 1],
-  ['Reports and Excel pack', 'TB, P&L, balance sheet, cash flow, dashboard', 0],
-  ['Handover', 'Pack for the auditor and tax adviser', 0]];
-
-function slides(D){
-  const R = D.run, M = D.meta, C = M.contact;
-  const mins = (R.counters.find(c => /^minutes/.test(c.l)) || {}).v || 41;
-  const lev = +(((R.flow.find(f => f.h === 'Dashboard') || {rows: []}).rows.find(r => r[0] === 'Leverage') || [0, '1.93'])[1]).replace(/[^0-9.]/g, '');
-  const facts = [{v: R.company[0].v, f: 'gbpmr', l: 'revenue, FY26'}, {v: R.adj.reported / 1e6, f: 'gbpmr', l: 'EBITDA, FY26'}].concat(R.company.slice(1));
-  const mail = `mailto:${C.email}?subject=${encodeURIComponent(C.subject)}`;
-  const qr = M.qr || {};
-  return [
-  { // 1 the company
-    title: 'Northwind Logistics', html: `<div class="s1"><div class="titlemark">${MARK}<span>Demo company · entirely fictional</span></div>
-      <h2 class="pop">Northwind Logistics</h2><p class="sub pop">PE-backed UK contract logistics. Closing March, which is also the year end.</p>
-      <div class="facts5">${facts.map(f => `<div class="fact"><div class="fv" data-to="${f.v}" data-fmt="${f.f}">${fmtv(0, f.f)}</div><div class="fl">${esc(f.l)}</div></div>`).join('')}</div>
-      <div class="capstrip pop"><span><b>Sponsor</b>Fernleigh Capital Partners</span><span><b>Debt</b>£12m senior term loan</span><span><b>Covenant</b>${M.covenant.toFixed(1)}x net debt / EBITDA</span></div></div>`,
-    play: (el, at) => { at(80, () => el.querySelector('.titlemark').classList.add('in')); el.querySelectorAll('.pop').forEach((p, i) => at(250 + i*250, () => p.classList.add('in')));
-      el.querySelectorAll('.fv').forEach((f, i) => at(500 + i*110, () => count(f))); },
-    notes: 'A £42m PE-backed logistics business with a sponsor, a £12m loan and a 3.0x covenant. March is the month we close, and it is also the year end. Everything you will see is fictional.' },
-  { // 2 the inputs
-    title: 'The inputs', html: `<h2 class="pop">The inputs</h2><p class="sub pop">One folder, exactly as the documents arrive. Nothing cleaned up first.</p>
-      <div class="inflow"><div class="ingrid">${R.sources.map(s => `<div class="inc"><div class="ic" style="background:${s.c}"><svg viewBox="0 0 24 24">${SRC_IC[s.ic]}</svg></div><div><div class="sn">${esc(s.n)}</div><div class="sd">${esc(s.d)}</div></div></div>`).join('')}</div>
-        <svg class="inarrow" viewBox="0 0 120 40" aria-hidden="true"><path d="M4 20H108M94 8l14 12-14 12"/></svg>
-        <div class="incore"><div class="fchip">${FOLD.replace('<svg', '<svg aria-hidden="true"')}Northwind folder</div><div class="cl">Claude in Cowork</div><div class="cs">Reads every file. Never edits the originals.</div></div></div>`,
-    play: (el, at) => { el.querySelectorAll('.pop').forEach((p, i) => at(80 + i*200, () => p.classList.add('in')));
-      el.querySelectorAll('.inc').forEach((c, i) => at(450 + i*120, () => c.classList.add('in')));
-      at(1650, () => el.querySelector('.inarrow').classList.add('in')); at(2050, () => el.querySelector('.incore').classList.add('in')); },
-    notes: 'Three inboxes, one of them the CFO\'s personal Gmail. A supplier portal, bank and card statements, the ERP export, a locked payroll report and a photo of a till receipt. Then switch to Cowork and show the folder and connectors.' },
-  { // 3 the prompts and process
-    title: 'Ten prompts, one session', html: `<h2 class="pop">Ten prompts, one session</h2><p class="sub pop">${mins} minutes from the first prompt to the auditor pack. Claude asks; the CFO decides.</p>
-      <div class="plist">${STEPS.map((p, i) => `<div class="pr${p[2] ? ' cfo' : ''}"><span class="pn">${i + 1}</span><div><div class="pt">${esc(p[0])}${p[2] ? '<span class="cfotag">CFO call</span>' : ''}</div><div class="po">${esc(p[1])}</div></div></div>`).join('')}</div>`,
-    play: (el, at) => { el.querySelectorAll('.pop').forEach((p, i) => at(80 + i*200, () => p.classList.add('in'))); el.querySelectorAll('.pr').forEach((r, i) => at(450 + i*170, () => r.classList.add('in'))); },
-    notes: 'Ten prompts in one session. Claude collected, booked and reconciled, and stopped at four points that need the CFO: the payroll password, the grant, the judgement list and the EBITDA adjustments. Then switch to Cowork and scroll the chat history.' },
-  { // 4 the output
-    title: 'The output', html: `<h2 class="pop">The output</h2><p class="sub pop">Matched an answer key built before the documents, on all 45 accounts, to the penny.</p>
-      <div class="out"><div class="ostats">
-        <div class="os"><div class="ov">£0.00</div><div class="ol">trial balance difference against the answer key</div></div>
-        <div class="os amb"><div class="ov" data-to="${R.adj.adjusted}" data-fmt="gbpm2">${fmtv(0, 'gbpm2')}</div><div class="ol">Adjusted EBITDA: +£${Math.round((R.adj.adjusted - R.adj.reported) / 1000)}k, each item traced to an invoice line</div></div>
-        <div class="os"><div class="ov" data-to="${lev}" data-fmt="x2">${fmtv(0, 'x2')}</div><div class="ol">net debt / Adjusted EBITDA, against a ${M.covenant.toFixed(1)}x covenant</div></div></div>
-        <div class="wf">${wf(R.adj)}</div></div>
-      <div class="odel pop">Board dashboard · Excel close pack · Auditor handover pack · General ledger</div>`,
-    play: (el, at) => { el.querySelectorAll('.pop').forEach((p, i) => at(80 + i*200, () => p.classList.add('in'))); el.querySelectorAll('.os').forEach((o, i) => at(450 + i*250, () => o.classList.add('in')));
-      el.querySelectorAll('.ov[data-to]').forEach((v, i) => at(700 + i*250, () => count(v))); at(1500, () => el.querySelector('.wf').classList.add('in')); },
-    notes: 'The trial balance matched an answer key built before any document existed, on every account. Claude also found £37k of net EBITDA adjustments in invoice lines the ERP does not show, each one traced to its source and approved by the CFO. Then switch to the dashboard.' },
-  { // 5 contact
-    title: 'Gokul Madan', html: `<div class="prof"><div class="pleft pop">${M.contact.photo ? `<img class="avatar" src="${esc(M.contact.photo)}" alt="Gokul Madan">` : '<div class="avatar" aria-hidden="true">GM</div>'}
-        <div><h2>Gokul Madan</h2><div class="clist">
-          <a href="${esc(mail)}"><svg viewBox="0 0 24 24" aria-hidden="true">${ICON.mail}</svg>${esc(C.email)}</a>
-          <a href="${esc(C.linkedin)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true">${ICON.link}</svg>${esc(C.linkedin.replace(/^https:\/\/(www\.)?/, '').replace(/\/$/, ''))}</a>
-          <a href="${esc(C.web)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true">${ICON.web}</svg>${esc(C.web.replace(/^https:\/\//, ''))}</a></div></div></div>
-      <div class="qrs pop">${qr.linkedin ? `<figure>${qr.linkedin}<figcaption>Connect on LinkedIn</figcaption></figure>` : ''}${qr.site ? `<figure>${qr.site}<figcaption>This demo: dashboard, prompts and sample data</figcaption></figure>` : ''}</div></div>`,
-    play: (el, at) => el.querySelectorAll('.pop').forEach((p, i) => at(100 + i*300, () => p.classList.add('in'))),
-    notes: 'Questions, or want help setting this up on your own close? Happy to connect.' },
-  ];
-}
-
-// --------------------------------------------------------------------------- helpers
-function type(el, at, start, ms){ const t = el.dataset.text; el.textContent = ''; el.classList.add('caret'); for (let i = 1; i <= t.length; i++) at(start + i*ms, () => { el.textContent = t.slice(0, i); }); at(start + t.length*ms + 400, () => el.classList.remove('caret')); }
-function fmtv(v, f){ if (f && f.startsWith('of:')) return Math.round(v) + '/' + f.slice(3); if (f === 'gbpmr') return '£' + v.toFixed(1) + 'm'; if (f === 'gbpm') return '£' + (v/1e6).toFixed(1) + 'm'; if (f === 'pct') return v.toFixed(0) + '%'; if (f === 'x') return v.toFixed(1) + 'x'; if (f === 'x2') return v.toFixed(2) + 'x'; if (f === 'gbpm2') return '£' + (v/1e6).toFixed(2) + 'm'; if (f === 'min') return Math.round(v) + ' min'; return Math.round(v).toLocaleString('en-GB'); }
-function count(el){ const to = +el.dataset.to, f = el.dataset.fmt, t0 = performance.now(), dur = 900;
-  const step = now => { const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = fmtv(to * e, f); if (k < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); }
-function tween(el, from, to, dur, at){ const t0 = performance.now(); const step = now => { const k = Math.min(1, (now - t0)/dur); el.textContent = gbp(from + (to - from) * k); if (k < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); }
-function finalState(el, s){
-  el.querySelectorAll('.in-able,.titlemark,.t1 h2,.t1 .sub,.roadline,.srcard,.tree div,.check li,.lr,.tick,.q,.aa,.adjc,.dc,.fc,.postedline,.needs,.dialog,.wf,.pop,.inc,.inarrow,.incore,.pr,.os').forEach(x => x.classList.add('in'));
-  el.querySelectorAll('.srcard').forEach(x => x.style.transform = `rotate(${x.dataset.r}deg)`);
-  el.querySelectorAll('.tog').forEach(x => x.classList.add('on'));
-  el.querySelectorAll('[data-to]').forEach(x => { if (x.classList.contains('pbt')) return; x.textContent = fmtv(+x.dataset.to, x.dataset.fmt); });
-  el.querySelectorAll('.typed').forEach(x => x.textContent = x.dataset.text);
-  if (s.final) s.final(el);
-}
-
-// --------------------------------------------------------------------------- deck engine
-const Deck = {
-  i: 0, timers: [], S: null, D: null, el: null,
-  mount(main, D){
-    this.D = D; this.S = slides(D);
-    const hashI = +(location.hash.split('/')[2] || 0); if (hashI >= 1 && hashI <= this.S.length) this.i = hashI - 1;
-    main.innerHTML = `<div class="deckwrap"><div class="deckbar"><h1>Walkthrough</h1><span class="stamp" id="dcount"></span>
-      <button class="btn ghost sm" id="dnotes" aria-pressed="false">Speaker notes</button><button class="btn teal sm" id="dfs">Full screen</button></div>
-      <div class="stagebox" id="stagebox"><div class="stage" id="stage">${this.S.map((s, k) => `<section class="slide" data-k="${k}" aria-label="${esc(s.title)}">${s.html}</section>`).join('')}</div>
-        <div class="fsnav"><button class="btn ghost sm" data-go="-1">Back</button><button class="btn ghost sm" data-go="1">Next</button></div></div>
-      <div class="deckctl"><button class="btn ghost sm" data-go="-1" aria-label="Previous slide">Back</button><div class="dots">${this.S.map((s, k) => `<button aria-label="Slide ${k+1}: ${esc(s.title)}" data-k="${k}"></button>`).join('')}</div>
-        <button class="btn teal sm" data-go="1" aria-label="Next slide">Next</button></div>
-      <div class="deckhelp" style="margin-top:8px">Use the arrow keys or click the slide to move on. Press F for full screen, N for speaker notes.</div>
-      <div class="mobhint">On a phone? Turn it sideways, or <a href="${esc((D.meta.files||{}).slides||'downloads/Northwind_Walkthrough_Slides.pdf')}" target="_blank" rel="noopener">open the slides as a PDF</a>.</div>
-      <div class="notes" id="dnotesbox"></div></div>`;
-    this.el = main;
-    main.querySelectorAll('[data-go]').forEach(b => b.onclick = e => { e.stopPropagation(); this.go(this.i + (+b.dataset.go)); });
-    main.querySelectorAll('.dots button').forEach(b => b.onclick = () => this.go(+b.dataset.k));
-    main.querySelector('#stagebox').addEventListener('click', e => { if (e.target.closest('a,button')) return; this.go(this.i + 1); });
-    main.querySelector('#dfs').onclick = () => this.fs();
-    main.querySelector('#dnotes').onclick = () => this.notes();
-    if (!this.keyBound){ this.keyBound = true; document.addEventListener('keydown', e => this.key(e)); window.addEventListener('resize', () => this.fit()); document.addEventListener('fullscreenchange', () => setTimeout(() => this.fit(), 60)); }
-    this.active = true; this.fit(); this.show(this.i);
-  },
-  stop(){ this.active = false; this.clear(); },
-  key(e){
-    if (!this.active || e.target.closest('input,textarea,select')) return;
-    if (['ArrowRight','PageDown',' '].includes(e.key)){ e.preventDefault(); this.go(this.i + 1); }
-    else if (['ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); this.go(this.i - 1); }
-    else if (e.key === 'Home') this.go(0); else if (e.key === 'End') this.go(this.S.length - 1);
-    else if (e.key === 'f' || e.key === 'F') this.fs(); else if (e.key === 'n' || e.key === 'N') this.notes();
-  },
-  fit(){ const box = document.getElementById('stagebox'), st = document.getElementById('stage'); if (!box || !st) return;
-    const w = box.clientWidth, h = box.clientHeight, k = Math.min(w / 1280, h / 720);
-    st.style.transform = `translate(${(w - 1280*k)/2}px, ${(h - 720*k)/2}px) scale(${k})`; },
-  fs(){ const box = document.getElementById('stagebox'); if (!box) return; if (document.fullscreenElement) document.exitFullscreen(); else if (box.requestFullscreen) box.requestFullscreen().catch(() => {}); else if (box.webkitRequestFullscreen) box.webkitRequestFullscreen(); },
-  notes(){ const n = document.getElementById('dnotesbox'), b = document.getElementById('dnotes'); const on = n.classList.toggle('on'); b.setAttribute('aria-pressed', on); this.renderNotes(); },
-  renderNotes(){ const n = document.getElementById('dnotesbox'); if (n) n.innerHTML = `<b>Slide ${this.i + 1}: ${esc(this.S[this.i].title)}.</b> ${esc(this.S[this.i].notes)}`; },
-  clear(){ this.timers.forEach(clearTimeout); this.timers = []; },
-  go(k){ if (k < 0 || k >= this.S.length) return; this.show(k); },
-  show(k){
-    this.clear(); this.i = k;
-    const secs = document.querySelectorAll('#stage .slide'); if (!secs.length) return;
-    secs.forEach(s => s.classList.remove('on'));
-    const old = secs[k], fresh = old.cloneNode(false); fresh.innerHTML = this.S[k].html; old.replaceWith(fresh); fresh.classList.add('on');
-    fresh.querySelectorAll('a[href^="#/"]').forEach(a => a.addEventListener('click', () => { if (document.fullscreenElement) document.exitFullscreen(); }));
-    document.querySelectorAll('.dots button').forEach((b, j) => { b.setAttribute('aria-current', j === k); b.classList.toggle('seen', j < k); });
-    const c = document.getElementById('dcount'); if (c) c.textContent = `${k + 1} / ${this.S.length}`;
-    this.renderNotes();
-    if (history.replaceState) history.replaceState(null, '', `#/walkthrough/${k + 1}`);
-    const s = this.S[k], reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || window.NWL_STATIC){ finalState(fresh, s); return; }
-    if (s.play) s.play(fresh, (ms, fn) => this.timers.push(setTimeout(fn, ms)));
-  },
-  renderFinal(k){ this.show(k); this.clear(); const el = document.querySelectorAll('#stage .slide')[k]; finalState(el, this.S[k]); }
-};
-window.NWLDeck = Deck;
-})();
-
-/* Northwind close demo: site app (fictional company). Data is loaded from small JSON chunks. */
+<script>/* Northwind close demo: site app (fictional company). Data is loaded from small JSON chunks. */
 (function(){
 'use strict';
 const $ = (s, el=document) => el.querySelector(s);
@@ -676,7 +283,7 @@ const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','
 const store = { get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } },
                 set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} } };
 
-let D, ACC, BYCODE = {}, BASE = [], J = [], DEC = {}, TX, B, T, MONTHLY;
+let D, ACC, BYCODE = {}, BASE = [], J = [], DEC = {}, TX, B, T, MONTHLY, MODE = {pl:'table', cf:'table'};
 const JKEY = 'nwl-demo-journals-v1', AKEY = 'nwl-demo-adj-v1';
 
 // --------------------------------------------------------------------------- data
@@ -757,7 +364,6 @@ function monthly(){
 
 // --------------------------------------------------------------------------- shell
 const VIEWS = [
-  ['walkthrough','Walkthrough','<path d="M5 4l14 8-14 8z"/>'],
   ['dashboard','Dashboard','<rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>'],
   ['trial-balance','Trial balance','<path d="M12 3v18M5 7h14M7 7l-3 7h6zM17 7l-3 7h6z"/>'],
   ['profit-and-loss','Profit and loss','<path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6"/>'],
@@ -769,35 +375,58 @@ const VIEWS = [
   ['build','Build it yourself','<path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/>'],
 ];
 const MARK = '<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2L38 20 20 38 2 20z" fill="#0E5A6B"/><path d="M14 27V13h2.6l7 9.4V13H26v14h-2.5l-7.1-9.5V27z" fill="#fff"/></svg>';
+const CHEV = '<span class="tg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>';
+const CICON = {mail:'<path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/>', link:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2.5 2.5 0 0 1 5 0v4M12 10v7"/>', web:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>'};
+function contactCard(){
+  const c = D.meta.contact, mail = `mailto:${c.email}?subject=${encodeURIComponent(c.subject)}`;
+  return `<div class="ccard">${c.photo ? `<img class="cphoto" src="${esc(c.photo)}" alt="Gokul Madan">` : '<div class="cphoto mono" aria-hidden="true">GM</div>'}
+    <div><h2 id="ctitle">Gokul Madan</h2><div class="clist">
+      <a href="${esc(mail)}"><svg viewBox="0 0 24 24" aria-hidden="true">${CICON.mail}</svg>${esc(c.email)}</a>
+      <a href="${esc(c.linkedin)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true">${CICON.link}</svg>${esc(c.linkedin.replace(/^https:\/\/(www\.)?/, '').replace(/\/$/, ''))}</a>
+      <a href="${esc(c.web)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true">${CICON.web}</svg>${esc(c.web.replace(/^https:\/\//, ''))}</a></div></div></div>`;
+}
+let lastFocus = null;
+function openContact(){ lastFocus = document.activeElement; const m = $('#contact'); m.hidden = false; document.body.classList.add('modalopen'); $('.mclose', m).focus(); }
+function closeContact(){ const m = $('#contact'); if (!m || m.hidden) return; m.hidden = true; document.body.classList.remove('modalopen'); if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+function resetDemo(){
+  J = defaultJ(); DEC = Object.fromEntries(D.adj.map(a => [a.id, a.dec])); MODE = {pl:'table', cf:'table'};
+  try { localStorage.removeItem(JKEY); localStorage.removeItem(AKEY); } catch(e){}
+  recompute(); route();
+  const m = $('#resetmsg'); if (m){ m.textContent = 'Demo reset'; clearTimeout(resetDemo.t); resetDemo.t = setTimeout(() => { m.textContent = ''; }, 2200); }
+}
 function shell(){
-  const c = D.meta.contact;
-  const mail = `mailto:${c.email}?subject=${encodeURIComponent(c.subject)}`;
   document.body.innerHTML = `
   <div id="topbar"><button class="btn ghost sm" id="menu" aria-label="Open menu" aria-expanded="false">Menu</button>
-    <a class="brand" href="#/walkthrough">${MARK}<div><b>Northwind</b><span>AI close demo</span></div></a>
-    <a class="btn amber sm mail" href="${mail}">Email Gokul</a><a class="btn ghost sm li" href="${c.linkedin}" target="_blank" rel="noopener" aria-label="Gokul Madan on LinkedIn">in</a></div>
+    <a class="brand" href="#/dashboard">${MARK}<div><b>Northwind</b><span>AI close demo</span></div></a></div>
   <div id="scrim"></div>
   <aside id="nav" aria-label="Site">
-    <a class="brand" href="#/walkthrough">${MARK}<div><b>Northwind</b><span>AI close demo · fictional company</span></div></a>
-    <nav>${VIEWS.map(([id, label, ic], k) => `${k===2||k===8?'<div class="navgap"></div>':''}<button class="nv${id==='build'?' star':''}" data-v="${id}"><svg viewBox="0 0 24 24">${ic}</svg><span>${label}</span>${id==='journals'?' <span class="tag amber" id="jcount"></span>':''}</button>`).join('')}</nav>
-    <div class="navfoot"><a class="btn amber" href="${mail}">Email Gokul</a>
-      <div class="navlinks"><a href="${c.linkedin}" target="_blank" rel="noopener">LinkedIn ↗</a><a href="${c.web}" target="_blank" rel="noopener">gokulmadan.com ↗</a></div></div>
+    <a class="brand" href="#/dashboard">${MARK}<div><b>Northwind</b><span>AI close demo · fictional company</span></div></a>
+    <nav>${VIEWS.map(([id, label, ic], k) => `${k===1||k===7?'<div class="navgap"></div>':''}<button class="nv${id==='build'?' star':''}" data-v="${id}"><svg viewBox="0 0 24 24">${ic}</svg><span>${label}</span>${id==='journals'?' <span class="tag amber" id="jcount"></span>':''}</button>`).join('')}</nav>
+    <div class="navfoot">
+      <div class="resetrow"><button class="btn ghost sm" id="resetdemo" title="Put the journals and the adjustment decisions back to how the close left them"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v5h5"/></svg>Reset the demo</button><span class="copied" id="resetmsg" role="status"></span></div>
+      <p class="helpnote">If you want some help setting up something like this or to brainstorm other AI solutions in finance, I'm always happy to help.<span class="sig">— Gokul</span></p>
+      <button class="linkbtn" id="contactbtn">Contact <span aria-hidden="true">↗</span></button>
+    </div>
   </aside>
-  <main id="main"></main><div class="tip" id="tip"></div>`;
+  <main id="main"></main><div class="tip" id="tip"></div>
+  <div class="modal" id="contact" role="dialog" aria-modal="true" aria-labelledby="ctitle" hidden><div class="mcard"><button class="mclose" aria-label="Close">×</button>${contactCard()}</div></div>`;
   $$('.nv').forEach(b => b.onclick = () => { location.hash = '#/' + b.dataset.v; });
   $('#menu').onclick = () => { const o = document.body.classList.toggle('navopen'); $('#menu').setAttribute('aria-expanded', o); };
   $('#scrim').onclick = () => document.body.classList.remove('navopen');
+  $('#resetdemo').onclick = resetDemo;
+  $('#contactbtn').onclick = () => { document.body.classList.remove('navopen'); openContact(); };
+  $('#contact').addEventListener('click', e => { if (e.target.id === 'contact' || e.target.closest('.mclose')) closeContact(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeContact(); });
   window.addEventListener('hashchange', route);
   recompute(); route();
 }
 function route(){
-  const v = (location.hash.replace(/^#\/?/, '') || 'walkthrough').split('/')[0];
-  const id = VIEWS.some(x => x[0] === v) ? v : 'walkthrough';
+  const v = (location.hash.replace(/^#\/?/, '') || 'dashboard').split('/')[0];
+  const id = VIEWS.some(x => x[0] === v) ? v : 'dashboard';
   $$('.nv').forEach(b => { if (b.dataset.v === id) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
   document.body.classList.remove('navopen');
-  if (window.NWLDeck && id !== 'walkthrough') window.NWLDeck.stop();
   const main = $('#main'); main.innerHTML = '';
-  (PAGES[id] || PAGES.walkthrough)(main);
+  (PAGES[id] || PAGES.dashboard)(main);
   window.scrollTo(0, 0);
   document.title = VIEWS.find(x => x[0] === id)[1] + ' · Northwind close demo';
 }
@@ -855,7 +484,6 @@ function hbar(el, rows, color){
 
 // --------------------------------------------------------------------------- pages
 const PAGES = {};
-PAGES.walkthrough = main => { if (window.NWLDeck) window.NWLDeck.mount(main, D); else main.innerHTML = '<div class="page"><p>Loading the walkthrough…</p></div>'; };
 
 PAGES.dashboard = main => {
   const f = figures(B), a = adjusted(), lv = leverage(), cov = D.meta.coverage;
@@ -899,47 +527,124 @@ function txnList(a, mult){
     const kindTag = t.kind === 'E' ? '<span class="tag">ERP month</span> ' : t.kind === 'Y' ? '<span class="tag amber">year-end journal</span> ' : t.kind === 'O' ? '<span class="tag">opening</span> ' : '';
     return `<div class="txn"><span class="d">${dmy(t.date)}</span><span class="x">${kindTag}<b>${esc(t.payee)}</b> ${esc(t.narr)}${doc?`<span class="f">Evidence: ${doc}</span>`:''}</span><span class="v">${fmt(amt)}</span></div>`; }).join('');
 }
-function node(n, depth, mult, el, label){
+function node(n, depth, mult, el, label, secId){
   const kids = Object.values(n.kids);
   const r = document.createElement('div');
-  const isLeaf = !!n.acct; const v = mult * n.total;
+  const isLeaf = !!n.acct; const v = mult * n.total; const hasT = isLeaf && T[n.acct.i].length > 0;
   r.className = 'srow ' + (isLeaf ? 'leaf' : depth === 0 ? 'parent' : 'sub');
-  r.style.paddingLeft = (16 + depth*20) + 'px';
+  if (secId) r.id = secId;
+  r.style.paddingLeft = (10 + depth*22) + 'px';
   const name = isLeaf ? `<span class="muted">${n.acct.c}</span>&nbsp; ${esc(n.acct.n)}` : esc(label || SEC_LABEL[n.name] || n.name);
-  r.innerHTML = `<span class="c">${isLeaf ? (T[n.acct.i].length ? '▸' : '') : '▾'}</span><span class="l">${name}</span><span class="a num ${v < -0.005 ? 'neg' : ''}">${fmt(v)}</span>`;
-  el.appendChild(r); const box = document.createElement('div'); el.appendChild(box);
-  if (!isLeaf){ kids.sort((a,b) => (a.acct && b.acct) ? a.acct.c.localeCompare(b.acct.c) : 0).forEach(k => node(k, depth+1, mult, box)); r.onclick = () => { const h = box.style.display === 'none'; box.style.display = h ? '' : 'none'; r.firstChild.textContent = h ? '▾' : '▸'; }; }
-  else if (T[n.acct.i].length){ box.className = 'txns'; box.style.display = 'none'; r.tabIndex = 0;
-    const open = () => { if (!box.innerHTML) box.innerHTML = txnList(n.acct, mult); const h = box.style.display === 'none'; box.style.display = h ? '' : 'none'; r.firstChild.textContent = h ? '▾' : '▸'; };
-    r.onclick = open; r.onkeydown = e => { if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(); } }; }
-  else r.style.cursor = 'default';
+  r.innerHTML = `<span class="c">${!isLeaf || hasT ? CHEV : ''}</span><span class="l">${name}</span><span class="a num ${v < -0.005 ? 'neg' : ''}">${fmt(v)}</span>`;
+  el.appendChild(r); const box = document.createElement('div'); box.className = isLeaf ? 'txns' : 'kids'; el.appendChild(box);
+  const show = on => { box.style.display = on ? '' : 'none'; r.classList.toggle('open', on); r.setAttribute('aria-expanded', on); };
+  if (!isLeaf){ kids.sort((a,b) => (a.acct && b.acct) ? a.acct.c.localeCompare(b.acct.c) : 0).forEach(k => node(k, depth+1, mult, box)); r._set = show; show(true); }
+  else if (hasT){ r._set = on => { if (on && !box.innerHTML) box.innerHTML = txnList(n.acct, mult); show(on); }; show(false); }
+  else { r.style.cursor = 'default'; return; }
+  r.tabIndex = 0; r.setAttribute('role', 'button');
+  r.onclick = () => r._set(box.style.display === 'none');
+  r.onkeydown = e => { if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); r.onclick(); } };
+}
+// generic collapsible section for statements built from figures (cash flow)
+function csec(box, it, depth){
+  const r = document.createElement('div'); const has = !!(it.kids && it.kids.length);
+  r.className = 'srow ' + (it.cls || (has ? (depth ? 'sub' : 'parent') : 'leaf')); r.style.paddingLeft = (10 + depth*22) + 'px'; if (it.id) r.id = it.id;
+  r.innerHTML = `<span class="c">${has ? CHEV : ''}</span><span class="l">${esc(it.label)}</span><span class="a num ${it.v < -0.005 ? 'neg' : ''}">${fmt(it.v)}</span>`;
+  box.appendChild(r);
+  if (!has){ r.style.cursor = 'default'; return; }
+  const kb = document.createElement('div'); kb.className = 'kids'; box.appendChild(kb); it.kids.forEach(k => csec(kb, k, depth + 1));
+  r._set = on => { kb.style.display = on ? '' : 'none'; r.classList.toggle('open', on); r.setAttribute('aria-expanded', on); }; r._set(true);
+  r.tabIndex = 0; r.setAttribute('role', 'button'); r.onclick = () => r._set(kb.style.display === 'none');
+  r.onkeydown = e => { if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); r.onclick(); } };
 }
 const leafRows = f => ACC.filter(f).map(a => [a, B[a.i]]).filter(([a, v]) => Math.abs(v) > 0.004 || T[a.i].length);
-const srow = (label, v, cls='tot', v2) => `<div class="srow ${cls}"><span class="c"></span><span class="l">${label}</span>${v2!==undefined?`<span class="a2 num">${v2}</span>`:''}<span class="a num ${typeof v==='number'&&v<-0.005?'neg':''}">${typeof v==='number'?fmt(v):v}</span></div>`;
+const srow = (label, v, cls='tot', v2, id) => `<div class="srow ${cls}"${id ? ` id="${id}"` : ''}><span class="c"></span><span class="l">${label}</span>${v2!==undefined?`<span class="a2 num">${v2}</span>`:''}<span class="a num ${typeof v==='number'&&v<-0.005?'neg':''}">${typeof v==='number'?fmt(v):v}</span></div>`;
+
+// toolbar: expand / collapse all, plus an optional Table / chart switch
+const IC_EXP = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9l5 5 5-5"/></svg>', IC_COL = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7l5 5-5 5"/></svg>';
+function viewbar(p, key, chartLabel){
+  const chart = key && MODE[key] === 'chart';
+  p.insertAdjacentHTML('beforeend', `<div class="viewbar">${chart ? '' : `<div class="treetools"><button class="btn ghost sm" data-x="1">${IC_EXP}Expand all</button><button class="btn ghost sm" data-x="0">${IC_COL}Collapse all</button></div>`}
+    ${key ? `<div class="seg" role="group" aria-label="View"><button data-m="table" aria-pressed="${!chart}">Table</button><button data-m="chart" aria-pressed="${chart}">${chartLabel}</button></div>` : ''}</div>`);
+  const bar = p.lastElementChild;
+  $$('[data-x]', bar).forEach(b => b.onclick = () => { const on = b.dataset.x === '1', st = $('.stmt', p); if (!st) return;
+    $$('.srow.parent, .srow.sub', st).forEach(r => r._set && r._set(on));
+    if (!on) $$('.srow.leaf.open', st).forEach(r => r._set(false)); });
+  $$('.seg button', bar).forEach(b => b.onclick = () => { if (MODE[key] === b.dataset.m) return; MODE[key] = b.dataset.m; route(); });
+}
+function jumpTo(key, id){ MODE[key] = 'table'; route(); const el = document.getElementById(id); if (!el) return;
+  let up = el.parentElement; while (up && !up.classList.contains('stmt')){ if (up.classList.contains('kids') && up.style.display === 'none'){ const h = up.previousElementSibling; h && h._set && h._set(true); } up = up.parentElement; }
+  el.scrollIntoView({block:'center'}); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); }
+
+// waterfall chart: steps [{l, v, t:'total'|'delta', key?:true, id}]
+function waterfall(steps, opt){
+  const W = 960, L = 64, R = 12, top = 34, bot = 318, H = 392;
+  let run = 0; const segs = steps.map(s => { if (s.t === 'total'){ run = s.v; return Object.assign({a:0, b:s.v}, s); } const a = run; run += s.v; return Object.assign({a, b:run}, s); });
+  const hi = niceMax(Math.max(...segs.map(s => Math.max(s.a, s.b))) * 1.04), lo = Math.min(0, ...segs.map(s => Math.min(s.a, s.b)));
+  const y = v => bot - (v - lo) / (hi - lo) * (bot - top); const bw = (W - L - R) / segs.length;
+  let g = '';
+  for (let k=0;k<=4;k++){ const v = lo + (hi - lo)*k/4; g += `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#E9EEED"/><text x="${L-8}" y="${y(v)+4}" text-anchor="end">${gbpShort(v)}</text>`; }
+  g += `<line x1="${L}" x2="${W-R}" y1="${y(0)}" y2="${y(0)}" stroke="#C9D3D2"/>`;
+  segs.forEach((s, i) => {
+    const x = L + i*bw + bw*0.16, w = bw*0.68, y0 = y(Math.max(s.a, s.b)), h = Math.max(1.5, Math.abs(y(s.a) - y(s.b)));
+    const col = s.t === 'total' ? (s.key ? '#F0A500' : '#0E5A6B') : (s.v >= 0 ? '#1F7A4D' : '#C98A2E');
+    const lab = s.t === 'total' ? gbpShort(s.v) : (Math.abs(s.v) < 0.5 ? '–' : (s.v >= 0 ? '+' : '−') + gbpShort(Math.abs(s.v)));
+    if (i < segs.length - 1){ const nx = L + (i+1)*bw + bw*0.16; g += `<line x1="${x + w}" x2="${nx}" y1="${y(s.b)}" y2="${y(s.b)}" stroke="#9AA9AE" stroke-dasharray="3 3"/>`; }
+    g += `<g class="hov wfb" data-i="${i}"${s.id ? ` data-id="${s.id}"` : ''} tabindex="0" role="button" aria-label="${esc(s.l)} ${esc(lab)}"><rect x="${x - bw*0.1}" y="${top - 20}" width="${w + bw*0.2}" height="${bot - top + 20}" fill="transparent"/><rect x="${x}" y="${y0}" width="${w}" height="${h}" rx="2.5" fill="${col}"/>
+      <text x="${x + w/2}" y="${y0 - 8}" text-anchor="middle" class="wv">${lab}</text></g>`;
+    const words = s.l.split(' '), lines = []; words.forEach(wd => { const last = lines[lines.length - 1]; if (last && (last + ' ' + wd).length <= 12) lines[lines.length - 1] = last + ' ' + wd; else lines.push(wd); });
+    g += `<text x="${x + w/2}" y="${bot + 20}" text-anchor="middle" class="wl">${lines.map((t, k) => `<tspan x="${x + w/2}" dy="${k ? 15 : 0}">${esc(t)}</tspan>`).join('')}</text>`;
+  });
+  return `<svg class="ch wf2" viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${esc(opt.aria)}">${g}</svg>`;
+}
+function wireWaterfall(el, steps, key){
+  $$('.wfb', el).forEach(b => { const s = steps[+b.dataset.i];
+    b.onmousemove = e => tip(e, `<b>${esc(s.l)}</b><br>${s.t === 'total' ? '' : s.v >= 0 ? '+' : '−'}${gbp(Math.abs(s.v))}${b.dataset.id ? '<br><span style="opacity:.75">Click to see it in the table</span>' : ''}`);
+    b.onmouseleave = e => tip(e);
+    if (b.dataset.id){ const go = () => { tip(null); jumpTo(key, b.dataset.id); }; b.onclick = go; b.onkeydown = e => { if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); go(); } }; } });
+}
 
 PAGES['trial-balance'] = main => {
   const p = page(main, 'Trial balance', `Every account at 31 March 2026, debit positive and credit in brackets. Click an account to see its postings and evidence. ${yeNote()}`);
+  viewbar(p);
   const box = document.createElement('div'); box.className = 'stmt'; p.appendChild(box);
   let dr = 0, cr = 0; B.forEach(v => { if (v > 0) dr += v; else cr -= v; });
   for (const r of ['Assets','Liabilities','Equity','Income','Expenses']){ const rows = leafRows(a => a.r === r); if (!rows.length) continue; node(tree(rows).kids[r], 0, 1, box, r); }
   box.insertAdjacentHTML('beforeend', srow(`Debits ${fmt(dr)} = credits ${fmt(cr)}`, Math.abs(dr-cr) < 0.01 ? '✓ balanced' : 'out of balance', 'grand'));
 };
+const STAFF = ['477', '479', '482'];
 PAGES['profit-and-loss'] = main => {
   const f = figures(B);
   const p = page(main, 'Profit and loss', `Year to 31 March 2026. ${yeNote()}`);
+  viewbar(p, 'pl', 'Waterfall');
+  const a = adjusted(), hint = `<p class="hint">Adjusted EBITDA for the board pack is ${gbp(a.adjusted)} (reported ${gbp(a.reported)} plus ${gbp(a.net)} of approved adjustments). See EBITDA adjustments.</p>`;
+  if (MODE.pl === 'chart'){
+    const staff = STAFF.reduce((t, c) => t + bal(c), 0), other = f.revenue - f.sales, hasTax = Math.abs(f.tax) > 0.005;
+    const steps = [{l:'Revenue', v:f.sales, t:'total', id:'sec-Revenue'}, {l:'Other income', v:other, t:'delta', id:'sec-OtherIncome'},
+      {l:'Direct costs', v:-f.direct, t:'delta', id:'sec-DirectCosts'}, {l:'Gross profit', v:f.gp, t:'total', id:'tot-gp'},
+      {l:'Staff costs', v:-staff, t:'delta', id:'sec-Overheads'}, {l:'Other overheads', v:-(f.over - staff), t:'delta', id:'sec-Overheads'},
+      {l:'EBITDA', v:f.ebitda, t:'total', key:true, id:'tot-ebitda'}, {l:'Depreciation', v:-f.dep, t:'delta', id:'sec-DepreciationAndAmortisation'},
+      {l:'Interest', v:-f.fin, t:'delta', id:'sec-FinanceCosts'}, {l:'Profit before tax', v:f.pbt, t:'total', id:'tot-pbt'}]
+      .concat(hasTax ? [{l:'Tax', v:-f.tax, t:'delta', id:'sec-Taxation'}, {l:'Profit after tax', v:f.pat, t:'total', id:'tot-pat'}] : []);
+    p.insertAdjacentHTML('beforeend', `<div class="panel chart"><h3>Revenue to ${hasTax ? 'profit after tax' : 'profit before tax'}</h3><div class="sub">FY26 · click a bar to see that line in the table</div>
+      <div class="wfwrap">${waterfall(steps, {aria:'Profit and loss waterfall'})}</div>
+      <div class="legend"><span><i style="background:#0E5A6B"></i>Total</span><span><i style="background:#F0A500"></i>EBITDA</span><span><i style="background:#1F7A4D"></i>Income</span><span><i style="background:#C98A2E"></i>Cost</span></div></div>${hint}`);
+    wireWaterfall(p, steps, 'pl'); return;
+  }
   const box = document.createElement('div'); box.className = 'stmt'; p.appendChild(box);
-  const add = (s, mult) => { const rows = leafRows(a => a.s === s); if (rows.length) node(tree(rows).kids[rows[0][0].r].kids[s], 0, mult, box); };
+  const add = (s, mult) => { const rows = leafRows(a => a.s === s); if (rows.length) node(tree(rows).kids[rows[0][0].r].kids[s], 0, mult, box, undefined, 'sec-' + s); };
   add('Revenue', -1); add('OtherIncome', -1); box.insertAdjacentHTML('beforeend', srow('Total revenue and other income', f.revenue));
-  add('DirectCosts', 1); box.insertAdjacentHTML('beforeend', srow(`Gross profit <span class="muted">· ${(f.gp/f.revenue*100).toFixed(1)}% margin</span>`, f.gp));
-  add('Overheads', 1); box.insertAdjacentHTML('beforeend', srow(`EBITDA <span class="muted">· ${(f.ebitda/f.revenue*100).toFixed(1)}% margin</span>`, f.ebitda, 'grand'));
+  add('DirectCosts', 1); box.insertAdjacentHTML('beforeend', srow(`Gross profit <span class="muted">· ${(f.gp/f.revenue*100).toFixed(1)}% margin</span>`, f.gp, 'tot', undefined, 'tot-gp'));
+  add('Overheads', 1); box.insertAdjacentHTML('beforeend', srow(`EBITDA <span class="muted">· ${(f.ebitda/f.revenue*100).toFixed(1)}% margin</span>`, f.ebitda, 'grand', undefined, 'tot-ebitda'));
   add('DepreciationAndAmortisation', 1); box.insertAdjacentHTML('beforeend', srow('Operating profit', f.ebit));
-  add('FinanceCosts', 1); box.insertAdjacentHTML('beforeend', srow('Profit before tax', f.pbt));
-  add('Taxation', 1); box.insertAdjacentHTML('beforeend', srow(J.some(j => /tax/i.test(j.desc)) ? 'Profit after tax' : 'Profit after tax <span class="muted">· tax not yet provided</span>', f.pat, 'grand'));
-  const a = adjusted(); p.insertAdjacentHTML('beforeend', `<p class="hint">Adjusted EBITDA for the board pack is ${gbp(a.adjusted)} (reported ${gbp(a.reported)} plus ${gbp(a.net)} of approved adjustments). See EBITDA adjustments.</p>`);
+  add('FinanceCosts', 1); box.insertAdjacentHTML('beforeend', srow('Profit before tax', f.pbt, 'tot', undefined, 'tot-pbt'));
+  add('Taxation', 1); box.insertAdjacentHTML('beforeend', srow(J.some(j => /tax/i.test(j.desc)) ? 'Profit after tax' : 'Profit after tax <span class="muted">· tax not yet provided</span>', f.pat, 'grand', undefined, 'tot-pat'));
+  p.insertAdjacentHTML('beforeend', hint);
 };
 PAGES['balance-sheet'] = main => {
   const f = figures(B);
   const p = page(main, 'Balance sheet', `At 31 March 2026. ${yeNote()}`);
+  viewbar(p);
   const box = document.createElement('div'); box.className = 'stmt'; p.appendChild(box);
   const assets = leafRows(a => a.r === 'Assets'), liabs = leafRows(a => a.r === 'Liabilities');
   const ta = assets.reduce((s,[,v])=>s+v,0), tl = -liabs.reduce((s,[,v])=>s+v,0);
@@ -958,26 +663,42 @@ function cashflow(){
   const wc = [['Decrease / (increase) in trade debtors', -d('610')], ['Decrease / (increase) in prepayments', -d('620')],
     ['Increase / (decrease) in trade creditors', -d('800')], ['Increase / (decrease) in accruals and deferred income', -(d('805') + d('810'))],
     ['Increase / (decrease) in VAT, PAYE and pensions', -(d('820') + d('825') + d('826'))], ['Increase / (decrease) in card, wages and expense claims', -(d('811') + d('814') + d('801'))]];
-  const ops = f.pbt + f.dep + f.fin + wc.reduce((s,x)=>s+x[1],0);
+  const wcT = wc.reduce((s,x)=>s+x[1],0);
+  const ops = f.pbt + f.dep + f.fin + wcT;
   const taxPaid = -(f.tax + d('830'));   // charge less movement in provision
   const intPaid = -f.fin;
   const capex = -(d('720') + d('764'));
   const repay = (bal('900') - (o['900']||0));   // credit balances negative: repayment makes it less negative -> positive number
   const group = -d('615');
   const net = ops + taxPaid + intPaid + capex - repay + group;
-  return {f, wc, ops, taxPaid, intPaid, capex, repay: -repay, group, net, dcash: d(D.meta.cash_code), open: o[D.meta.cash_code] || 0};
+  return {f, wc, wcT, ops, taxPaid, intPaid, capex, repay: -repay, group, net, dcash: d(D.meta.cash_code), open: o[D.meta.cash_code] || 0};
 }
 PAGES['cash-flow'] = main => {
   const c = cashflow();
   const p = page(main, 'Cash flow', 'Indirect method, derived from the ledger movements between 31 March 2025 and 31 March 2026.');
   p.insertAdjacentHTML('beforeend', `<div class="note">Management information: prepared from the ledger for the board pack, not a statutory cash flow statement.</div>`);
-  const rows = [['Profit before tax', c.f.pbt, 'leaf'], ['Add back depreciation', c.f.dep, 'leaf'], ['Add back interest payable', c.f.fin, 'leaf']]
-    .concat(c.wc.map(x => [x[0], x[1], 'leaf'])).concat([['Cash generated from operations', c.ops, 'tot'], ['Corporation tax paid', c.taxPaid, 'leaf'], ['Interest paid', c.intPaid, 'leaf'],
-    ['Net cash from operating activities', c.ops + c.taxPaid + c.intPaid, 'tot'], ['Purchase of fixed assets', c.capex, 'leaf'], ['Net cash used in investing activities', c.capex, 'tot'],
-    ['Repayment of bank loan', c.repay, 'leaf'], ['Loan to parent company', c.group, 'leaf'], ['Net cash used in financing activities', c.repay + c.group, 'tot'],
-    ['Net increase / (decrease) in cash', c.net, 'grand'], ['Cash at 1 April 2025', c.open, 'leaf'], ['Cash at 31 March 2026', c.open + c.net, 'grand']]);
-  p.insertAdjacentHTML('beforeend', `<div class="stmt">${rows.map(([l,v,cls]) => srow(l, v, cls)).join('')}</div>
-    <p class="hint">${Math.abs(c.net - c.dcash) < 0.01 ? '✓ Ties to the movement in the bank account.' : 'Check: does not tie to the bank movement by ' + fmt(c.net - c.dcash)}</p>`);
+  viewbar(p, 'cf', 'Bridge');
+  const tie = `<p class="hint">${Math.abs(c.net - c.dcash) < 0.01 ? '✓ Ties to the movement in the bank account.' : 'Check: does not tie to the bank movement by ' + fmt(c.net - c.dcash)}</p>`;
+  if (MODE.cf === 'chart'){
+    const steps = [{l:'Opening cash', v:c.open, t:'total', id:'cf-open'}, {l:'EBITDA', v:c.f.pbt + c.f.dep + c.f.fin, t:'delta', id:'cf-pbt'},
+      {l:'Working capital', v:c.wcT, t:'delta', id:'cf-wc'}, {l:'Interest paid', v:c.intPaid, t:'delta', id:'cf-int'}, {l:'Tax paid', v:c.taxPaid, t:'delta', id:'cf-tax'},
+      {l:'Capex', v:c.capex, t:'delta', id:'cf-inv'}, {l:'Financing and other', v:c.repay + c.group, t:'delta', id:'cf-fin'}, {l:'Closing cash', v:c.open + c.net, t:'total', key:true, id:'cf-close'}];
+    p.insertAdjacentHTML('beforeend', `<div class="panel chart"><h3>Cash bridge, FY26</h3><div class="sub">1 April 2025 to 31 March 2026 · click a bar to see that line in the table</div>
+      <div class="wfwrap">${waterfall(steps, {aria:'Cash bridge'})}</div>
+      <div class="legend"><span><i style="background:#0E5A6B"></i>Opening cash</span><span><i style="background:#1F7A4D"></i>Inflow</span><span><i style="background:#C98A2E"></i>Outflow</span><span><i style="background:#F0A500"></i>Closing cash</span></div></div>${tie}`);
+    wireWaterfall(p, steps, 'cf'); return;
+  }
+  const box = document.createElement('div'); box.className = 'stmt'; p.appendChild(box);
+  const L = (label, v, id, cls) => ({label, v, id, cls});
+  [{label:'Net cash from operating activities', v:c.ops + c.taxPaid + c.intPaid, id:'cf-ops', kids:[
+      L('Profit before tax', c.f.pbt, 'cf-pbt'), L('Add back depreciation', c.f.dep), L('Add back interest payable', c.f.fin),
+      {label:'Working capital movements', v:c.wcT, id:'cf-wc', kids:c.wc.map(x => L(x[0], x[1]))},
+      L('Cash generated from operations', c.ops, null, 'tot'), L('Corporation tax paid', c.taxPaid, 'cf-tax'), L('Interest paid', c.intPaid, 'cf-int')]},
+   {label:'Net cash used in investing activities', v:c.capex, id:'cf-inv', kids:[L('Purchase of fixed assets', c.capex)]},
+   {label:'Net cash used in financing activities', v:c.repay + c.group, id:'cf-fin', kids:[L('Repayment of bank loan', c.repay), L('Loan to parent company', c.group)]},
+   L('Net increase / (decrease) in cash', c.net, null, 'grand'), L('Cash at 1 April 2025', c.open, 'cf-open'), L('Cash at 31 March 2026', c.open + c.net, 'cf-close', 'grand')
+  ].forEach(it => csec(box, it, 0));
+  p.insertAdjacentHTML('beforeend', tie);
 };
 
 PAGES.ebitda = main => {
@@ -1027,7 +748,7 @@ function bridgeSVG(a){
 PAGES.journals = main => {
   const f0 = figures(B);
   const p = page(main, 'Year-end journals', 'The journals Claude proposed in the close, with its workings. Post them here and every statement, the dashboard and the Excel pack update straight away. This is how an accountant or auditor would review and adjust.');
-  p.insertAdjacentHTML('beforeend', `<div class="note">Posted journals are saved in this browser only. They don't change the published ledger. Use <b>Email the journals</b> to send them back.</div>`);
+  p.insertAdjacentHTML('beforeend', `<div class="note">Posted journals are saved in this browser only. They don't change the published ledger. Use <b>Email the journals</b> to send them to your accountant.</div>`);
   const posted = id => J.find(j => j.id === id);
   const lines = ls => `<table class="jl">${ls.map(([ai, v]) => `<tr><td>${esc(ACC[ai].c)} ${esc(ACC[ai].n)}</td><td class="n">${v > 0 ? fmt(v) : ''}</td><td class="n">${v < 0 ? fmt(-v) : ''}</td></tr>`).join('')}</table>`;
   const effect = ls => { const B2 = B.slice(); for (const [ai, v] of ls) B2[ai] += v; const f = figures(B2); return f.pat - figures(B).pat; };
@@ -1047,7 +768,7 @@ PAGES.journals = main => {
     $$('[data-pedit]').forEach(b => b.onclick = () => form(Object.assign({}, D.ye.find(x => x.id === b.dataset.pedit), {lines: D.ye.find(x => x.id === b.dataset.pedit).lines.map(l=>l.slice())})));
     $$('[data-edit]').forEach(b => b.onclick = () => form(JSON.parse(JSON.stringify(J.find(j => j.id === b.dataset.edit)))));
     const text = () => J.map(j => dmy(j.date) + '  ' + j.desc + '\n' + j.lines.map(([ai, v]) => '   ' + (v > 0 ? 'Dr ' : 'Cr ') + (ACC[ai].c + ' ' + ACC[ai].n).padEnd(48) + Math.abs(v).toFixed(2).padStart(14)).join('\n')).join('\n\n');
-    const jm = $('#jmail'); if (jm){ jm.href = `mailto:${D.meta.contact.email}?subject=${encodeURIComponent('Northwind demo - year-end journals')}&body=${encodeURIComponent(text())}`;
+    const jm = $('#jmail'); if (jm){ jm.href = `mailto:?subject=${encodeURIComponent('Northwind demo - year-end journals')}&body=${encodeURIComponent(text())}`;
       $('#jcopy').onclick = async () => { try { await navigator.clipboard.writeText(text()); $('#jmsg').textContent = 'Copied'; } catch(e){ $('#jmsg').textContent = 'Copy failed: select the table and copy it instead'; } };
       $('#jreset').onclick = () => { J = defaultJ(); save(); }; }
     const r2b = $('#jreset2'); if (r2b) r2b.onclick = () => { J = defaultJ(); save(); };
@@ -1140,13 +861,11 @@ PAGES.downloads = main => {
     dlCard('csv', 'General ledger (CSV)', 'Every posting in one flat file, ready to import into another system.', '<button class="btn ghost" id="dc">Download CSV</button>') +
     dlCard('zip', 'Sample data pack', `The Northwind company folder Claude started from: ${D.meta.run.emails} emails, statements, ERP export, payroll, portal downloads and a phone photo. Try the prompts on it yourself.`, `<a class="btn ghost" href="${F.pack}" download>Download sample pack (${F.pack_size})</a>`) +
     dlCard('csv', 'Prompt pack', 'The ten prompts as a text file, for the sample data and for your own. Also inside the sample pack.', `<a class="btn ghost" href="${F.prompts}" download>Download prompts</a>`) +
-    dlCard('key', 'Answer key', 'The correct books, generated before the documents. Compare your own run against it.', `<a class="btn ghost" href="${F.key}" download>Download answer key</a>`) +
-    dlCard('pdf', 'Walkthrough slides (PDF)', 'Static frames of the animated walkthrough, for anyone who wants a file.', `<a class="btn ghost" href="${F.slides}" download>Download PDF</a>`));
+    dlCard('key', 'Answer key', 'The correct books, generated before the documents. Compare your own run against it.', `<a class="btn ghost" href="${F.key}" download>Download answer key</a>`));
   $('#dx').onclick = e => excel(e.currentTarget); $('#dc').onclick = glcsv;
 };
 PAGES.build = main => {
-  const c = D.meta.contact, mail = `mailto:${c.email}?subject=${encodeURIComponent(c.subject)}`;
-  const p = page(main, 'Build it yourself', 'The same ten prompts used in the walkthrough. Run them in order in one Cowork session, first on our sample data, then on your own.');
+  const p = page(main, 'Build it yourself', 'The ten prompts used in the demo. Run them in order in one Cowork session, first on our sample data, then on your own.');
   p.insertAdjacentHTML('beforeend', `<h2>Before you start</h2><div class="steps">
     <div class="step"><b>Open Cowork</b><p>Install the Claude desktop app, sign in and open Cowork.</p></div>
     <div class="step"><b>Choose a folder</b><p>Select the folder holding your statements and exports. Claude only sees the folders you choose.</p></div>
@@ -1160,7 +879,8 @@ PAGES.build = main => {
       <div class="panel pad"><h3>Accuracy</h3><p>Every closing balance is checked against a statement with a balance assertion; the ledger won't load if one is off by a penny. On this sample the result matched the answer key exactly.</p></div>
       <div class="panel pad"><h3>Privacy</h3><p>Claude works on the folders you select and the connectors you switch on, and nothing else. Use read-only exports if you prefer, and remove access when you're done.</p></div>
       <div class="panel pad"><h3>What still needs you</h3><p>Judgement calls, the EBITDA adjustments and sign-off. Claude prepares and explains; the CFO decides.</p></div></div>
-    <div class="cta"><div><h2>Want this set up for your own systems?</h2><p class="muted" style="margin:4px 0 0">I'll help you run it on your close, with your ERP, inboxes and covenant definitions.</p></div><a class="btn amber" href="${mail}">Email Gokul</a></div>`);
+    <div class="cta"><div><h2>Want some help to set this up for your own systems?</h2><p class="muted" style="margin:4px 0 0">Or brainstorm other AI automations? I'm always happy to help.</p></div><button class="btn amber" id="ctacontact">Contact Gokul</button></div>`);
+  $('#ctacontact').onclick = openContact;
   let mode = 'sample';
   const draw = () => { $('#plist').innerHTML = D.prompts.map((x, i) => `<div class="pcard${i === 0 ? ' open' : ''}" data-i="${i}"><div class="phead" tabindex="0" role="button" aria-expanded="${i===0}"><span class="pn">${x.n}</span><span class="pt">${esc(x.title)}</span><span class="chev">▸</span></div>
       <div class="pbody"><div class="ptext">${esc(mode === 'sample' ? x.sample : x.own)}</div><button class="btn ghost sm cp" data-i="${i}">Copy prompt</button><span class="copied"></span></div></div>`).join('');
