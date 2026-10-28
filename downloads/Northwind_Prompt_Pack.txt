@@ -1,0 +1,190 @@
+NORTHWIND LOGISTICS: PROMPT PACK
+From inbox to accounts: a year-end close with Claude
+
+Ten prompts, run in order in one Cowork session. Paste one, let Claude finish, then paste the next.
+
+BEFORE YOU START
+  1. Unzip the sample pack and keep the Northwind folder somewhere on your computer.
+  2. In the Claude desktop app, open Cowork and select the Northwind folder.
+  3. Payroll password, when Claude asks: NWL-Payroll-2026
+  4. Judgement questions: answer as the CFO did in our run (see README.txt).
+  5. Check your trial balance against the answer key. It should match to the penny.
+
+========================================================================
+PART 1: PROMPTS FOR THE SAMPLE DATA
+========================================================================
+
+PROMPT 1. SCOPE AND SET UP
+------------------------------------------------------------------------
+I've selected the Northwind folder. Northwind Logistics Ltd closes its books monthly in its ERP, and February 2026 is closed. Please close March 2026, which is also the 31 March 2026 year end.
+
+First, read everything in the folder: Inbox_Export, Statements, ERP_Export, Sales, Payroll, Portal_Downloads and Phone_Photos. Also read the accounting policies in the FY25 audited accounts.
+
+Then give me a short table showing what each source is, the period it covers, and anything you can't open.
+
+Create a folder called Close_2026-03 for your work. Don't change any original file.
+
+PROMPT 2. COLLECT AND FILE INVOICES AND RECEIPTS
+------------------------------------------------------------------------
+Go through every email in Inbox_Export and every file in Portal_Downloads, Phone_Photos and Sales.
+
+For every invoice, receipt or credit, capture the supplier, document number, date, service period, net, VAT and gross. File a copy in Close_2026-03/Documents/<Supplier>/ named YYYY-MM-DD_Supplier_Gross (keep the original file type; save HTML-only receipts as PDF).
+
+Flag anything that is not a bookable document (order confirmations, reminders, "invoice ready" notices) and anything personal.
+
+Check each document against ERP_Export/AP_Invoices_Posted_2026-03.csv and mark any the AP team has already posted.
+
+Give me the register as a CSV and a short summary.
+
+PROMPT 3. FIND MISSING DOCUMENTS
+------------------------------------------------------------------------
+Match every line in the March bank CSV and the March card statement, and every line on any supplier statement, to a filed document or an ERP open item.
+
+List anything without a document and say where you looked. Classify each one as: found in a portal download, found as a photo, on a supplier statement only (request a copy), or genuinely missing.
+
+Separately, list payments that rightly have no invoice (payroll, HMRC, pensions, loan, transfers, standing orders backed by a schedule) and give the reason for each.
+
+PROMPT 4. BUILD THE LEDGER
+------------------------------------------------------------------------
+Build a Beancount ledger for FY26 at Close_2026-03/ledger.beancount.
+
+**Accounts:** open every account in ERP_Export/Chart_of_Accounts.csv, named <Type>:<Section>:<Code>-<NameInCamelCase>.
+
+**History:** post the 31 March 2025 opening balances, then one summary journal for each closed month from April to February, all taken from ERP_Export/Monthly_Trial_Balances_FY26.csv.
+
+**March, in full detail:**
+- sales invoices
+- customer receipts against open AR
+- supplier invoices, with VAT exactly as shown on each document
+- the routine invoices the AP team already posted
+- payments against the open AP items
+- card transactions, at the GBP amount on the statement
+- the payroll journal from the payroll report (ask me for the password)
+- the recurring journals
+- the grant
+- the loan payment
+- bank fees
+
+**Rules:** follow the FY25 accounting policies. Book costs in the month the service relates to. Put receipt: metadata on every entry, pointing to its filed document. Run bean-check after every write and fix any error before moving on.
+
+PROMPT 5. RECONCILE TO STATEMENTS
+------------------------------------------------------------------------
+Reconcile each of these and add a Beancount balance assertion for every closing balance:
+- bank, to the CSV closing balance
+- card, to the March statement
+- AR, by customer
+- AP, by supplier (including Kestwick's statement)
+- VAT, PAYE and pension control accounts
+- the loan, to the bank notice
+
+Show me a table with a ✓ against each, or the difference and its explanation. Flag anything odd.
+
+PROMPT 6. REVIEW JUDGEMENT ITEMS WITH ME
+------------------------------------------------------------------------
+List every item where you made, or need, a judgement. Look for:
+- anything paid personally
+- foreign currency
+- items spanning the year end
+- grants
+- duplicates
+- documents found only in a portal or a photo
+- payments with no invoice
+- capital versus expense
+- cut-off
+
+For each one, give what you found, the options, your recommendation, and one question for me. Ask all the questions together, then update the ledger with my answers.
+
+PROMPT 7. PROPOSE YEAR-END JOURNALS
+------------------------------------------------------------------------
+Propose the year-end journals the FY25 accounting policies require:
+- prepayments, in whole months
+- deferred grant income, matched to the project months
+- depreciation on assets bought this month
+- a corporation tax estimate at 25% of profit before tax, rounded to the nearest pound, for the tax adviser to confirm
+
+Show the calculation and the double entry for each. Write them to Close_2026-03/yearend_journals.beancount (included from the ledger) and confirm the trial balance with them included.
+
+PROMPT 8. SURFACE EBITDA ADJUSTMENTS
+------------------------------------------------------------------------
+Our board and lenders use Adjusted EBITDA. Read the invoice lines, not just the totals, together with the ERP history. Propose adjustments, in either direction, for items that are non-recurring, non-operating, sponsor-related or relate to a prior year.
+
+For each adjustment, give:
+- the FY26 amount
+- the account it sits in
+- the source document and line
+- the reason
+
+Ask me to approve or decline each one. Save the decisions to Close_2026-03/ebitda_adjustments.csv, then calculate Reported EBITDA, Adjusted EBITDA and Net debt / Adjusted EBITDA against our 3.0x covenant.
+
+PROMPT 9. BUILD THE REPORTS, DASHBOARD AND EXCEL PACK
+------------------------------------------------------------------------
+From the ledger, including the year-end journals, produce:
+- a trial balance
+- a P&L, showing gross profit, EBITDA, depreciation, interest and tax
+- a balance sheet
+- an indirect cash flow, labelled management information
+- monthly revenue, costs and EBITDA
+- cash by month
+- top suppliers and the expense mix
+
+Build an Excel pack with those sheets plus the general ledger, a receipts index and the EBITDA bridge. Then build a one-page HTML dashboard.
+
+PROMPT 10. AUDITOR AND ADVISER HANDOVER
+------------------------------------------------------------------------
+Write a handover note for the auditor and the tax adviser covering:
+- the sources
+- the reconciliations
+- each judgement and who decided it
+- the year-end journals
+- the EBITDA adjustments
+- open items
+- a file index
+
+Zip the documents, the ledger and the Excel pack into one handover pack.
+
+========================================================================
+PART 2: THE SAME PROMPTS FOR YOUR OWN DATA
+Replace the [brackets] with your own details.
+========================================================================
+
+PROMPT 1. SCOPE AND SET UP
+------------------------------------------------------------------------
+I've selected a folder containing my bank and card statements, my accounting-system exports and supplier documents. We are closing [month and year]. Read everything first, including last year's accounting policies, and give me a short table showing what each source is, the period it covers, and anything you can't open. Create a working folder for your outputs. Don't change any original file.
+
+PROMPT 2. COLLECT AND FILE INVOICES AND RECEIPTS
+------------------------------------------------------------------------
+Search my connected Outlook and Gmail, plus the folder, for invoices, receipts and credit notes for [period]. For each one, capture the supplier, number, date, period, net, VAT and gross. File a copy in Documents/<Supplier>/ named YYYY-MM-DD_Supplier_Gross. Flag non-invoices, personal items and anything already in [your accounting system]. Give me the register as a CSV and a short summary.
+
+PROMPT 3. FIND MISSING DOCUMENTS
+------------------------------------------------------------------------
+Match every bank and card line for [period], and every supplier statement line, to a document. List anything unsupported, where you looked, and whether it's in a portal, a photo, a statement only, or genuinely missing. List separately the payments that rightly have no invoice, with the reason for each.
+
+PROMPT 4. BUILD THE LEDGER
+------------------------------------------------------------------------
+Build a double-entry ledger (Beancount) for [period] using my chart of accounts [file or "the default UK chart"]. Start from the opening trial balance in [file]. Book every document and every bank and card line. Follow my accounting policies [file or summary]. Put a receipt link on every entry, and run bean-check after every write.
+
+PROMPT 5. RECONCILE TO STATEMENTS
+------------------------------------------------------------------------
+Reconcile bank, card, receivables, payables, VAT, payroll liabilities and loans to their statements for [period]. Add a balance assertion for each. Show a table with a ✓ or the difference and its explanation, and flag anything odd.
+
+PROMPT 6. REVIEW JUDGEMENT ITEMS WITH ME
+------------------------------------------------------------------------
+Same prompt as the sample-data version, for my books.
+
+PROMPT 7. PROPOSE YEAR-END JOURNALS
+------------------------------------------------------------------------
+Propose the year-end journals my policies require (prepayments, accruals, deferred income, depreciation, a tax estimate). Show the workings and the double entries, keep them in a separate file, and show the trial balance before and after.
+
+PROMPT 8. SURFACE EBITDA ADJUSTMENTS
+------------------------------------------------------------------------
+Same prompt as the sample-data version. Use my covenant definition [paste it], or the definition in [facility agreement].
+
+PROMPT 9. BUILD THE REPORTS, DASHBOARD AND EXCEL PACK
+------------------------------------------------------------------------
+Same prompt as the sample-data version, for [period].
+
+PROMPT 10. AUDITOR AND ADVISER HANDOVER
+------------------------------------------------------------------------
+Same prompt as the sample-data version, addressed to [your accountant or auditor].
+
+Questions? gokulmadan2@gmail.com  ·  linkedin.com/in/gokulmadan  ·  gokulmadan.com

@@ -1,0 +1,9 @@
+Journal,Date,Narration,Account,Account name,Debit,Credit
+RJ-01,31/03/2026,Depreciation - plant and machinery (per fixed asset register),416,Depreciation,49750.00,
+RJ-01,31/03/2026,Depreciation - plant and machinery (per fixed asset register),765,Less Accumulated Depreciation on Plant and Machinery,,49750.00
+RJ-02,31/03/2026,Depreciation - computer equipment (per fixed asset register),416,Depreciation,9410.00,
+RJ-02,31/03/2026,Depreciation - computer equipment (per fixed asset register),721,Less Accumulated Depreciation on Computer Equipment,,9410.00
+RJ-03,31/03/2026,Insurance prepayment release - FY26 policy (12 of 12),433,Insurance,95000.00,
+RJ-03,31/03/2026,Insurance prepayment release - FY26 policy (12 of 12),620,Prepayments,,95000.00
+RJ-04,31/03/2026,Audit fee accrual - FY26 audit (monthly),401,Audit and Accountancy Fees,4000.00,
+RJ-04,31/03/2026,Audit fee accrual - FY26 audit (monthly),805,Accruals,,4000.00

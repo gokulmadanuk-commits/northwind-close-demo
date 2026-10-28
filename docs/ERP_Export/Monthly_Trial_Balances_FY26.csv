@@ -1,0 +1,467 @@
+Period end,Code,Account,Debit,Credit
+31/03/2025 (opening - FY25 audited),090,Business Bank Account (Lindenhall),1184622.47,
+31/03/2025 (opening - FY25 audited),610,Accounts Receivable,7656180.80,
+31/03/2025 (opening - FY25 audited),615,Amounts Owed by Group Undertakings (Northwind Bidco),3600000.00,
+31/03/2025 (opening - FY25 audited),620,Prepayments,1228000.00,
+31/03/2025 (opening - FY25 audited),720,Computer Equipment,338760.00,
+31/03/2025 (opening - FY25 audited),721,Less Accumulated Depreciation on Computer Equipment,,144180.00
+31/03/2025 (opening - FY25 audited),764,Plant and Machinery,5790000.00,
+31/03/2025 (opening - FY25 audited),765,Less Accumulated Depreciation on Plant and Machinery,,1659270.00
+31/03/2025 (opening - FY25 audited),800,Accounts Payable,,1361658.03
+31/03/2025 (opening - FY25 audited),805,Accruals,,46000.00
+31/03/2025 (opening - FY25 audited),811,Credit Card Control Account,,249.00
+31/03/2025 (opening - FY25 audited),820,VAT,,1026104.88
+31/03/2025 (opening - FY25 audited),825,PAYE Payable,,284263.65
+31/03/2025 (opening - FY25 audited),826,Pensions Payable,,66107.86
+31/03/2025 (opening - FY25 audited),830,Provision for Corporation Tax,,312000.00
+31/03/2025 (opening - FY25 audited),900,Loan (Lindenhall senior term loan),,13000000.00
+31/03/2025 (opening - FY25 audited),950,Share Capital,,100000.00
+31/03/2025 (opening - FY25 audited),960,Retained Earnings,,1797729.85
+30/04/2025,090,Business Bank Account (Lindenhall),1476337.38,
+30/04/2025,200,Sales,,3315338.55
+30/04/2025,320,Direct Wages,792030.10,
+30/04/2025,321,Subcontractors,466577.81,
+30/04/2025,322,Agency Labour,331925.53,
+30/04/2025,323,Fuel,406319.98,
+30/04/2025,324,Vehicle Leases,216000.00,
+30/04/2025,400,Advertising and Marketing,6080.37,
+30/04/2025,401,Audit and Accountancy Fees,10500.00,
+30/04/2025,404,Bank Fees,420.55,
+30/04/2025,416,Depreciation,57660.00,
+30/04/2025,429,General Expenses,23864.59,
+30/04/2025,433,Insurance,95000.00,
+30/04/2025,437,Interest Paid,87616.44,
+30/04/2025,441,Legal Expenses,8885.96,
+30/04/2025,445,"Light, Power, Heating",33240.37,
+30/04/2025,463,IT Software and Consumables,8207.50,
+30/04/2025,469,Rent,215000.00,
+30/04/2025,473,Repairs and Maintenance,14709.78,
+30/04/2025,477,Salaries,215089.30,
+30/04/2025,479,Employers National Insurance,132942.77,
+30/04/2025,482,Pensions Costs,25689.58,
+30/04/2025,489,Telephone and Internet,15642.84,
+30/04/2025,493,Travel - National,3003.51,
+30/04/2025,610,Accounts Receivable,7894596.40,
+30/04/2025,615,Amounts Owed by Group Undertakings (Northwind Bidco),3600000.00,
+30/04/2025,620,Prepayments,1125000.00,
+30/04/2025,720,Computer Equipment,338760.00,
+30/04/2025,721,Less Accumulated Depreciation on Computer Equipment,,153590.00
+30/04/2025,764,Plant and Machinery,5790000.00,
+30/04/2025,765,Less Accumulated Depreciation on Plant and Machinery,,1707520.00
+30/04/2025,800,Accounts Payable,,1364412.44
+30/04/2025,805,Accruals,,50000.00
+30/04/2025,811,Credit Card Control Account,,249.00
+30/04/2025,820,VAT,,1383181.64
+30/04/2025,825,PAYE Payable,,294573.73
+30/04/2025,826,Pensions Payable,,68505.55
+30/04/2025,830,Provision for Corporation Tax,,156000.00
+30/04/2025,900,Loan (Lindenhall senior term loan),,13000000.00
+30/04/2025,950,Share Capital,,100000.00
+30/04/2025,960,Retained Earnings,,1797729.85
+31/05/2025,090,Business Bank Account (Lindenhall),1047538.04,
+31/05/2025,200,Sales,,6682790.31
+31/05/2025,320,Direct Wages,1592047.73,
+31/05/2025,321,Subcontractors,936995.99,
+31/05/2025,322,Agency Labour,673794.68,
+31/05/2025,323,Fuel,818230.50,
+31/05/2025,324,Vehicle Leases,432000.00,
+31/05/2025,400,Advertising and Marketing,12179.91,
+31/05/2025,401,Audit and Accountancy Fees,21000.00,
+31/05/2025,404,Bank Fees,838.41,
+31/05/2025,416,Depreciation,115320.00,
+31/05/2025,429,General Expenses,47284.91,
+31/05/2025,433,Insurance,190000.00,
+31/05/2025,437,Interest Paid,175393.15,
+31/05/2025,441,Legal Expenses,18247.13,
+31/05/2025,445,"Light, Power, Heating",64720.44,
+31/05/2025,463,IT Software and Consumables,16415.00,
+31/05/2025,469,Rent,430000.00,
+31/05/2025,473,Repairs and Maintenance,29713.67,
+31/05/2025,477,Salaries,429405.64,
+31/05/2025,479,Employers National Insurance,266967.72,
+31/05/2025,482,Pensions Costs,51595.60,
+31/05/2025,489,Telephone and Internet,31210.37,
+31/05/2025,493,Travel - National,6127.38,
+31/05/2025,610,Accounts Receivable,8019348.38,
+31/05/2025,615,Amounts Owed by Group Undertakings (Northwind Bidco),3600000.00,
+31/05/2025,620,Prepayments,1022000.00,
+31/05/2025,720,Computer Equipment,338760.00,
+31/05/2025,721,Less Accumulated Depreciation on Computer Equipment,,163000.00
+31/05/2025,764,Plant and Machinery,5790000.00,
+31/05/2025,765,Less Accumulated Depreciation on Plant and Machinery,,1755770.00
+31/05/2025,800,Accounts Payable,,1379549.10
+31/05/2025,805,Accruals,,54000.00
+31/05/2025,811,Credit Card Control Account,,249.00
+31/05/2025,820,VAT,,720999.55
+31/05/2025,825,PAYE Payable,,297964.12
+31/05/2025,826,Pensions Payable,,69082.72
+31/05/2025,830,Provision for Corporation Tax,,156000.00
+31/05/2025,900,Loan (Lindenhall senior term loan),,13000000.00
+31/05/2025,950,Share Capital,,100000.00
+31/05/2025,960,Retained Earnings,,1797729.85
+30/06/2025,090,Business Bank Account (Lindenhall),1432885.99,
+30/06/2025,200,Sales,,10092051.32
+30/06/2025,320,Direct Wages,2394074.40,
+30/06/2025,321,Subcontractors,1418471.28,
+30/06/2025,322,Agency Labour,1025170.97,
+30/06/2025,323,Fuel,1233558.53,
+30/06/2025,324,Vehicle Leases,648000.00,
+30/06/2025,400,Advertising and Marketing,17744.10,
+30/06/2025,401,Audit and Accountancy Fees,31500.00,
+30/06/2025,404,Bank Fees,1230.36,
+30/06/2025,416,Depreciation,172980.00,
+30/06/2025,429,General Expenses,108315.30,
+30/06/2025,433,Insurance,285000.00,
+30/06/2025,437,Interest Paid,260338.36,
+30/06/2025,441,Legal Expenses,28639.53,
+30/06/2025,445,"Light, Power, Heating",95531.04,
+30/06/2025,463,IT Software and Consumables,24622.50,
+30/06/2025,469,Rent,645000.00,
+30/06/2025,473,Repairs and Maintenance,44798.24,
+30/06/2025,477,Salaries,644517.02,
+30/06/2025,479,Employers National Insurance,401413.28,
+30/06/2025,482,Pensions Costs,77585.74,
+30/06/2025,489,Telephone and Internet,46849.67,
+30/06/2025,493,Travel - National,9603.66,
+30/06/2025,610,Accounts Receivable,8132055.34,
+30/06/2025,615,Amounts Owed by Group Undertakings (Northwind Bidco),3600000.00,
+30/06/2025,620,Prepayments,919000.00,
+30/06/2025,720,Computer Equipment,338760.00,
+30/06/2025,721,Less Accumulated Depreciation on Computer Equipment,,172410.00
+30/06/2025,764,Plant and Machinery,5790000.00,
+30/06/2025,765,Less Accumulated Depreciation on Plant and Machinery,,1804020.00
+30/06/2025,800,Accounts Payable,,1447625.72
+30/06/2025,805,Accruals,,58000.00
+30/06/2025,811,Credit Card Control Account,,249.00
+30/06/2025,820,VAT,,1080970.04
+30/06/2025,825,PAYE Payable,,299282.34
+30/06/2025,826,Pensions Payable,,69307.04
+30/06/2025,830,Provision for Corporation Tax,,156000.00
+30/06/2025,900,Loan (Lindenhall senior term loan),,12750000.00
+30/06/2025,950,Share Capital,,100000.00
+30/06/2025,960,Retained Earnings,,1797729.85
+31/07/2025,090,Business Bank Account (Lindenhall),1893864.19,
+31/07/2025,200,Sales,,13525376.06
+31/07/2025,320,Direct Wages,3202775.26,
+31/07/2025,321,Subcontractors,1904063.32,
+31/07/2025,322,Agency Labour,1383468.80,
+31/07/2025,323,Fuel,1647239.25,
+31/07/2025,324,Vehicle Leases,864000.00,
+31/07/2025,400,Advertising and Marketing,23794.76,
+31/07/2025,401,Audit and Accountancy Fees,42000.00,
+31/07/2025,404,Bank Fees,1597.36,
+31/07/2025,416,Depreciation,230640.00,
+31/07/2025,429,General Expenses,131714.16,
+31/07/2025,433,Insurance,380000.00,
+31/07/2025,437,Interest Paid,346427.06,
+31/07/2025,441,Legal Expenses,35850.16,
+31/07/2025,445,"Light, Power, Heating",126551.32,
+31/07/2025,463,IT Software and Consumables,32830.00,
+31/07/2025,469,Rent,860000.00,
+31/07/2025,473,Repairs and Maintenance,60041.51,
+31/07/2025,477,Salaries,858416.42,
+31/07/2025,479,Employers National Insurance,536678.17,
+31/07/2025,482,Pensions Costs,103739.75,
+31/07/2025,489,Telephone and Internet,62320.76,
+31/07/2025,493,Travel - National,12392.90,
+31/07/2025,610,Accounts Receivable,8211102.90,
+31/07/2025,615,Amounts Owed by Group Undertakings (Northwind Bidco),3600000.00,
+31/07/2025,620,Prepayments,816000.00,
+31/07/2025,720,Computer Equipment,338760.00,
+31/07/2025,721,Less Accumulated Depreciation on Computer Equipment,,181820.00
+31/07/2025,764,Plant and Machinery,5790000.00,
+31/07/2025,765,Less Accumulated Depreciation on Plant and Machinery,,1852270.00
+31/07/2025,800,Accounts Payable,,1405570.70
+31/07/2025,805,Accruals,,62000.00
+31/07/2025,811,Credit Card Control Account,,249.00
+31/07/2025,820,VAT,,1451900.40
+31/07/2025,825,PAYE Payable,,299608.02
+31/07/2025,826,Pensions Payable,,69744.02
+31/07/2025,900,Loan (Lindenhall senior term loan),,12750000.00
+31/07/2025,950,Share Capital,,100000.00
+31/07/2025,960,Retained Earnings,,1797729.85
+31/08/2025,090,Business Bank Account (Lindenhall),1467955.69,
+31/08/2025,200,Sales,,16984362.12
+31/08/2025,320,Direct Wages,4009285.76,
+31/08/2025,321,Subcontractors,2389183.64,
+31/08/2025,322,Agency Labour,1748499.72,
+31/08/2025,323,Fuel,2066280.17,
+31/08/2025,324,Vehicle Leases,1080000.00,
+31/08/2025,400,Advertising and Marketing,29364.56,
+31/08/2025,401,Audit and Accountancy Fees,52500.00,
+31/08/2025,404,Bank Fees,1994.09,
+31/08/2025,416,Depreciation,288300.00,
+31/08/2025,429,General Expenses,154986.79,
+31/08/2025,433,Insurance,475000.00,
+31/08/2025,437,Interest Paid,429808.57,
+31/08/2025,441,Legal Expenses,45350.95,
+31/08/2025,445,"Light, Power, Heating",158202.19,
+31/08/2025,463,IT Software and Consumables,41037.50,
+31/08/2025,469,Rent,1075000.00,
+31/08/2025,473,Repairs and Maintenance,75737.79,
+31/08/2025,477,Salaries,1072256.06,
+31/08/2025,479,Employers National Insurance,671605.55,
+31/08/2025,482,Pensions Costs,129826.25,
+31/08/2025,489,Telephone and Internet,78123.01,
+31/08/2025,493,Travel - National,15259.84,
+31/08/2025,610,Accounts Receivable,8270772.96,
+31/08/2025,615,Amounts Owed by Group Undertakings (Northwind Bidco),3600000.00,
+31/08/2025,620,Prepayments,713000.00,
+31/08/2025,720,Computer Equipment,338760.00,
+31/08/2025,721,Less Accumulated Depreciation on Computer Equipment,,191230.00
+31/08/2025,764,Plant and Machinery,5790000.00,
+31/08/2025,765,Less Accumulated Depreciation on Plant and Machinery,,1900520.00
+31/08/2025,800,Accounts Payable,,1418948.64
+31/08/2025,805,Accruals,,20000.00
+31/08/2025,811,Credit Card Control Account,,249.00
+31/08/2025,820,VAT,,734849.13
+31/08/2025,825,PAYE Payable,,300638.34
+31/08/2025,826,Pensions Payable,,69564.01
+31/08/2025,900,Loan (Lindenhall senior term loan),,12750000.00
+31/08/2025,950,Share Capital,,100000.00
+31/08/2025,960,Retained Earnings,,1797729.85
+30/09/2025,090,Business Bank Account (Lindenhall),1927145.62,
+30/09/2025,200,Sales,,20504643.94
+30/09/2025,320,Direct Wages,4828516.23,
+30/09/2025,321,Subcontractors,2880577.62,
+30/09/2025,322,Agency Labour,2124548.51,
+30/09/2025,323,Fuel,2491741.35,
+30/09/2025,324,Vehicle Leases,1296000.00,
+30/09/2025,400,Advertising and Marketing,35281.52,
+30/09/2025,401,Audit and Accountancy Fees,63000.00,
+30/09/2025,404,Bank Fees,2395.05,
+30/09/2025,416,Depreciation,347460.00,
+30/09/2025,429,General Expenses,216397.34,
+30/09/2025,433,Insurance,570000.00,
+30/09/2025,437,Interest Paid,510500.35,
+30/09/2025,441,Legal Expenses,54816.24,
+30/09/2025,445,"Light, Power, Heating",191592.67,
+30/09/2025,463,IT Software and Consumables,49245.00,
+30/09/2025,469,Rent,1290000.00,
+30/09/2025,473,Repairs and Maintenance,90416.73,
+30/09/2025,477,Salaries,1286261.03,
+30/09/2025,479,Employers National Insurance,808465.72,
+30/09/2025,482,Pensions Costs,156299.31,
+30/09/2025,489,Telephone and Internet,93939.05,
+30/09/2025,493,Travel - National,18161.44,
+30/09/2025,610,Accounts Receivable,8375121.47,
+30/09/2025,615,Amounts Owed by Group Undertakings (Northwind Bidco),3600000.00,
+30/09/2025,620,Prepayments,610000.00,
+30/09/2025,720,Computer Equipment,338760.00,
+30/09/2025,721,Less Accumulated Depreciation on Computer Equipment,,200640.00
+30/09/2025,764,Plant and Machinery,5970000.00,
+30/09/2025,765,Less Accumulated Depreciation on Plant and Machinery,,1950270.00
+30/09/2025,800,Accounts Payable,,1703320.65
+30/09/2025,805,Accruals,,24000.00
+30/09/2025,811,Credit Card Control Account,,249.00
+30/09/2025,820,VAT,,1071647.54
+30/09/2025,825,PAYE Payable,,303546.44
+30/09/2025,826,Pensions Payable,,70594.83
+30/09/2025,900,Loan (Lindenhall senior term loan),,12500000.00
+30/09/2025,950,Share Capital,,100000.00
+30/09/2025,960,Retained Earnings,,1797729.85
+31/10/2025,090,Business Bank Account (Lindenhall),2186865.60,
+31/10/2025,200,Sales,,24101212.21
+31/10/2025,320,Direct Wages,5653606.18,
+31/10/2025,321,Subcontractors,3387161.43,
+31/10/2025,322,Agency Labour,2510666.70,
+31/10/2025,323,Fuel,2930237.06,
+31/10/2025,324,Vehicle Leases,1512000.00,
+31/10/2025,400,Advertising and Marketing,40597.05,
+31/10/2025,401,Audit and Accountancy Fees,73500.00,
+31/10/2025,404,Bank Fees,2775.77,
+31/10/2025,416,Depreciation,406620.00,
+31/10/2025,429,General Expenses,239659.48,
+31/10/2025,433,Insurance,665000.00,
+31/10/2025,437,Interest Paid,592246.93,
+31/10/2025,441,Legal Expenses,60674.43,
+31/10/2025,445,"Light, Power, Heating",229413.21,
+31/10/2025,463,IT Software and Consumables,57452.50,
+31/10/2025,469,Rent,1505000.00,
+31/10/2025,473,Repairs and Maintenance,105085.71,
+31/10/2025,477,Salaries,1500273.94,
+31/10/2025,479,Employers National Insurance,946206.00,
+31/10/2025,482,Pensions Costs,182948.40,
+31/10/2025,489,Telephone and Internet,109620.28,
+31/10/2025,493,Travel - National,20850.69,
+31/10/2025,610,Accounts Receivable,8540220.12,
+31/10/2025,615,Amounts Owed by Group Undertakings (Northwind Bidco),3600000.00,
+31/10/2025,620,Prepayments,507000.00,
+31/10/2025,720,Computer Equipment,338760.00,
+31/10/2025,721,Less Accumulated Depreciation on Computer Equipment,,210050.00
+31/10/2025,764,Plant and Machinery,5970000.00,
+31/10/2025,765,Less Accumulated Depreciation on Plant and Machinery,,2000020.00
+31/10/2025,800,Accounts Payable,,1480849.86
+31/10/2025,805,Accruals,,28000.00
+31/10/2025,811,Credit Card Control Account,,249.00
+31/10/2025,820,VAT,,1459658.82
+31/10/2025,825,PAYE Payable,,305607.51
+31/10/2025,826,Pensions Payable,,71064.23
+31/10/2025,830,Provision for Corporation Tax,180000.00,
+31/10/2025,900,Loan (Lindenhall senior term loan),,12500000.00
+31/10/2025,950,Share Capital,,100000.00
+31/10/2025,960,Retained Earnings,,1797729.85
+30/11/2025,090,Business Bank Account (Lindenhall),1808670.42,
+30/11/2025,200,Sales,,27901071.98
+30/11/2025,320,Direct Wages,6497995.73,
+30/11/2025,321,Subcontractors,3924704.84,
+30/11/2025,322,Agency Labour,2938738.65,
+30/11/2025,323,Fuel,3390698.51,
+30/11/2025,324,Vehicle Leases,1728000.00,
+30/11/2025,400,Advertising and Marketing,45885.79,
+30/11/2025,401,Audit and Accountancy Fees,84000.00,
+30/11/2025,404,Bank Fees,3153.45,
+30/11/2025,416,Depreciation,465780.00,
+30/11/2025,429,General Expenses,262932.83,
+30/11/2025,433,Insurance,760000.00,
+30/11/2025,437,Interest Paid,671356.52,
+30/11/2025,441,Legal Expenses,69523.52,
+30/11/2025,445,"Light, Power, Heating",272023.48,
+30/11/2025,463,IT Software and Consumables,65660.00,
+30/11/2025,469,Rent,1720000.00,
+30/11/2025,473,Repairs and Maintenance,120475.39,
+30/11/2025,477,Salaries,1715404.76,
+30/11/2025,479,Employers National Insurance,1087008.91,
+30/11/2025,482,Pensions Costs,210210.01,
+30/11/2025,489,Telephone and Internet,125368.10,
+30/11/2025,493,Travel - National,24127.12,
+30/11/2025,610,Accounts Receivable,8875713.66,
+30/11/2025,615,Amounts Owed by Group Undertakings (Northwind Bidco),3600000.00,
+30/11/2025,620,Prepayments,404000.00,
+30/11/2025,720,Computer Equipment,338760.00,
+30/11/2025,721,Less Accumulated Depreciation on Computer Equipment,,219460.00
+30/11/2025,764,Plant and Machinery,5970000.00,
+30/11/2025,765,Less Accumulated Depreciation on Plant and Machinery,,2049770.00
+30/11/2025,800,Accounts Payable,,1578368.72
+30/11/2025,805,Accruals,,32000.00
+30/11/2025,811,Credit Card Control Account,,249.00
+30/11/2025,820,VAT,,795994.59
+30/11/2025,825,PAYE Payable,,312849.92
+30/11/2025,826,Pensions Payable,,72697.63
+30/11/2025,830,Provision for Corporation Tax,180000.00,
+30/11/2025,900,Loan (Lindenhall senior term loan),,12500000.00
+30/11/2025,950,Share Capital,,100000.00
+30/11/2025,960,Retained Earnings,,1797729.85
+31/12/2025,090,Business Bank Account (Lindenhall),2214373.58,
+31/12/2025,200,Sales,,31815846.61
+31/12/2025,320,Direct Wages,7354383.69,
+31/12/2025,321,Subcontractors,4471938.18,
+31/12/2025,322,Agency Labour,3387829.83,
+31/12/2025,323,Fuel,3868536.27,
+31/12/2025,324,Vehicle Leases,1944000.00,
+31/12/2025,400,Advertising and Marketing,51385.23,
+31/12/2025,401,Audit and Accountancy Fees,94500.00,
+31/12/2025,404,Bank Fees,3529.46,
+31/12/2025,416,Depreciation,524940.00,
+31/12/2025,429,General Expenses,324228.89,
+31/12/2025,433,Insurance,855000.00,
+31/12/2025,437,Interest Paid,752041.45,
+31/12/2025,441,Legal Expenses,77965.01,
+31/12/2025,445,"Light, Power, Heating",317954.39,
+31/12/2025,463,IT Software and Consumables,73867.50,
+31/12/2025,469,Rent,1935000.00,
+31/12/2025,473,Repairs and Maintenance,134901.75,
+31/12/2025,477,Salaries,1929153.52,
+31/12/2025,479,Employers National Insurance,1229404.27,
+31/12/2025,482,Pensions Costs,237790.11,
+31/12/2025,489,Telephone and Internet,141066.62,
+31/12/2025,493,Travel - National,27480.63,
+31/12/2025,610,Accounts Receivable,9257561.29,
+31/12/2025,615,Amounts Owed by Group Undertakings (Northwind Bidco),3600000.00,
+31/12/2025,620,Prepayments,301000.00,
+31/12/2025,720,Computer Equipment,338760.00,
+31/12/2025,721,Less Accumulated Depreciation on Computer Equipment,,228870.00
+31/12/2025,764,Plant and Machinery,5970000.00,
+31/12/2025,765,Less Accumulated Depreciation on Plant and Machinery,,2099520.00
+31/12/2025,800,Accounts Payable,,1670688.49
+31/12/2025,805,Accruals,,36000.00
+31/12/2025,811,Credit Card Control Account,,249.00
+31/12/2025,820,VAT,,1209317.01
+31/12/2025,825,PAYE Payable,,316823.77
+31/12/2025,826,Pensions Payable,,73546.94
+31/12/2025,830,Provision for Corporation Tax,180000.00,
+31/12/2025,900,Loan (Lindenhall senior term loan),,12250000.00
+31/12/2025,950,Share Capital,,100000.00
+31/12/2025,960,Retained Earnings,,1797729.85
+31/01/2026,090,Business Bank Account (Lindenhall),2928695.33,
+31/01/2026,200,Sales,,35262430.88
+31/01/2026,320,Direct Wages,8161241.35,
+31/01/2026,321,Subcontractors,4959267.12,
+31/01/2026,322,Agency Labour,3744788.96,
+31/01/2026,323,Fuel,4289644.53,
+31/01/2026,324,Vehicle Leases,2164800.00,
+31/01/2026,400,Advertising and Marketing,56600.01,
+31/01/2026,401,Audit and Accountancy Fees,105000.00,
+31/01/2026,404,Bank Fees,4267.34,
+31/01/2026,416,Depreciation,584100.00,
+31/01/2026,429,General Expenses,347687.89,
+31/01/2026,433,Insurance,950000.00,
+31/01/2026,437,Interest Paid,831632.89,
+31/01/2026,441,Legal Expenses,85075.01,
+31/01/2026,445,"Light, Power, Heating",364364.46,
+31/01/2026,463,IT Software and Consumables,93455.58,
+31/01/2026,469,Rent,2150000.00,
+31/01/2026,473,Repairs and Maintenance,150522.26,
+31/01/2026,477,Salaries,2143988.12,
+31/01/2026,479,Employers National Insurance,1364532.96,
+31/01/2026,482,Pensions Costs,263916.88,
+31/01/2026,489,Telephone and Internet,156767.14,
+31/01/2026,493,Travel - National,30424.39,
+31/01/2026,610,Accounts Receivable,8833630.68,
+31/01/2026,615,Amounts Owed by Group Undertakings (Northwind Bidco),3600000.00,
+31/01/2026,620,Prepayments,198000.00,
+31/01/2026,720,Computer Equipment,338760.00,
+31/01/2026,721,Less Accumulated Depreciation on Computer Equipment,,238280.00
+31/01/2026,764,Plant and Machinery,5970000.00,
+31/01/2026,765,Less Accumulated Depreciation on Plant and Machinery,,2149270.00
+31/01/2026,800,Accounts Payable,,1434127.69
+31/01/2026,805,Accruals,,40000.00
+31/01/2026,811,Credit Card Control Account,,11969.86
+31/01/2026,820,VAT,,1577350.12
+31/01/2026,825,PAYE Payable,,300333.12
+31/01/2026,826,Pensions Payable,,69671.38
+31/01/2026,830,Provision for Corporation Tax,360000.00,
+31/01/2026,900,Loan (Lindenhall senior term loan),,12250000.00
+31/01/2026,950,Share Capital,,100000.00
+31/01/2026,960,Retained Earnings,,1797729.85
+28/02/2026,090,Business Bank Account (Lindenhall),3047345.01,
+28/02/2026,200,Sales,,38591144.36
+28/02/2026,320,Direct Wages,8955354.51,
+28/02/2026,321,Subcontractors,5428798.83,
+28/02/2026,322,Agency Labour,4079781.99,
+28/02/2026,323,Fuel,4696665.58,
+28/02/2026,324,Vehicle Leases,2385600.00,
+28/02/2026,400,Advertising and Marketing,62031.80,
+28/02/2026,401,Audit and Accountancy Fees,115500.00,
+28/02/2026,404,Bank Fees,5003.99,
+28/02/2026,416,Depreciation,643260.00,
+28/02/2026,429,General Expenses,371418.49,
+28/02/2026,433,Insurance,1045000.00,
+28/02/2026,437,Interest Paid,903803.85,
+28/02/2026,441,Legal Expenses,91318.65,
+28/02/2026,445,"Light, Power, Heating",407484.79,
+28/02/2026,463,IT Software and Consumables,113121.00,
+28/02/2026,469,Rent,2365000.00,
+28/02/2026,473,Repairs and Maintenance,164865.20,
+28/02/2026,477,Salaries,2359028.68,
+28/02/2026,479,Employers National Insurance,1497780.87,
+28/02/2026,482,Pensions Costs,289667.49,
+28/02/2026,489,Telephone and Internet,172545.67,
+28/02/2026,493,Travel - National,32922.99,
+28/02/2026,610,Accounts Receivable,8130357.29,
+28/02/2026,615,Amounts Owed by Group Undertakings (Northwind Bidco),3600000.00,
+28/02/2026,620,Prepayments,95000.00,
+28/02/2026,720,Computer Equipment,338760.00,
+28/02/2026,721,Less Accumulated Depreciation on Computer Equipment,,247690.00
+28/02/2026,764,Plant and Machinery,5970000.00,
+28/02/2026,765,Less Accumulated Depreciation on Plant and Machinery,,2199020.00
+28/02/2026,800,Accounts Payable,,1397574.23
+28/02/2026,805,Accruals,,44000.00
+28/02/2026,811,Credit Card Control Account,,12049.51
+28/02/2026,820,VAT,,724235.57
+28/02/2026,825,PAYE Payable,,295304.86
+28/02/2026,826,Pensions Payable,,68668.30
+28/02/2026,830,Provision for Corporation Tax,360000.00,
+28/02/2026,900,Loan (Lindenhall senior term loan),,12250000.00
+28/02/2026,950,Share Capital,,100000.00
+28/02/2026,960,Retained Earnings,,1797729.85
