@@ -1,11 +1,11 @@
 NORTHWIND LOGISTICS: PROMPT PACK
 From inbox to accounts: a year-end close with Claude
 
-Ten prompts, run in order in one Cowork session. Paste one, let Claude finish, then paste the next.
+Ten prompts, run in order in one conversation in Claude. Paste one, let Claude finish, then paste the next.
 
 BEFORE YOU START
   1. Unzip the sample pack and keep the Northwind folder somewhere on your computer.
-  2. In the Claude desktop app, open Cowork and select the Northwind folder.
+  2. Open the Claude desktop app and select the Northwind folder.
   3. Payroll password, when Claude asks: NWL-Payroll-2026
   4. Judgement questions: answer as the CFO did in our run (see README.txt).
   5. Check your trial balance against the answer key. It should match to the penny.

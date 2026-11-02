@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Northwind close demo</title>
-<meta name="description" content="From inbox to accounts: a year-end close with Claude in Cowork, on a fictional PE-backed logistics company.">
+<meta name="description" content="From inbox to accounts: a year-end close with Claude, on a fictional PE-backed logistics company.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 2L38 20 20 38 2 20z' fill='%230E5A6B'/%3E%3C/svg%3E">
 <link rel="preload" href="fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -244,6 +244,7 @@ table.simple td.n,table.simple th.n{text-align:right;font-variant-numeric:tabula
 .resetrow .copied{font-size:13px;color:var(--pos);font-weight:600}
 .helpnote{font-size:13.5px;line-height:1.45;color:var(--ink2);margin:14px 0 6px}
 .helpnote .sig{display:block;margin-top:5px;color:var(--ink);font-weight:600}
+.navfoot .linkbtn{display:block;margin-top:14px}
 .linkbtn{border:0;background:none;padding:2px 0;color:var(--teal);font-weight:600;font-size:14px;cursor:pointer;font-family:inherit}
 .linkbtn:hover{text-decoration:underline}
 .modal{position:fixed;inset:0;background:rgba(20,35,44,.45);display:grid;place-items:center;z-index:60;padding:16px}
@@ -404,8 +405,7 @@ function shell(){
     <nav>${VIEWS.map(([id, label, ic], k) => `${k===1||k===7?'<div class="navgap"></div>':''}<button class="nv${id==='build'?' star':''}" data-v="${id}"><svg viewBox="0 0 24 24">${ic}</svg><span>${label}</span>${id==='journals'?' <span class="tag amber" id="jcount"></span>':''}</button>`).join('')}</nav>
     <div class="navfoot">
       <div class="resetrow"><button class="btn ghost sm" id="resetdemo" title="Put the journals and the adjustment decisions back to how the close left them"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v5h5"/></svg>Reset the demo</button><span class="copied" id="resetmsg" role="status"></span></div>
-      <p class="helpnote">If you want some help setting up something like this or to brainstorm other AI solutions in finance, I'm always happy to help.<span class="sig">— Gokul</span></p>
-      <button class="linkbtn" id="contactbtn">Contact <span aria-hidden="true">↗</span></button>
+      <button class="linkbtn" id="contactbtn">Contact Gokul <span aria-hidden="true">↗</span></button>
     </div>
   </aside>
   <main id="main"></main><div class="tip" id="tip"></div>
@@ -865,15 +865,15 @@ PAGES.downloads = main => {
   $('#dx').onclick = e => excel(e.currentTarget); $('#dc').onclick = glcsv;
 };
 PAGES.build = main => {
-  const p = page(main, 'Build it yourself', 'The ten prompts used in the demo. Run them in order in one Cowork session, first on our sample data, then on your own.');
+  const p = page(main, 'Build it yourself', 'The ten prompts used in the demo. Run them in order in one conversation in Claude, first on our sample data, then on your own.');
   p.insertAdjacentHTML('beforeend', `<h2>Before you start</h2><div class="steps">
-    <div class="step"><b>Open Cowork</b><p>Install the Claude desktop app, sign in and open Cowork.</p></div>
+    <div class="step"><b>Open Claude</b><p>Install the Claude desktop app and sign in.</p></div>
     <div class="step"><b>Choose a folder</b><p>Select the folder holding your statements and exports. Claude only sees the folders you choose.</p></div>
     <div class="step"><b>Connect email (optional)</b><p>Turn on the Outlook or Gmail connector so Claude can search for invoices. You can skip this and export emails to the folder instead.</p></div></div>
     <h2>Prompt library</h2><div class="toolbar"><span class="muted">Show prompts for</span><div class="seg" role="group"><button aria-pressed="true" data-m="sample">Our sample data</button><button aria-pressed="false" data-m="own">Your own data</button></div><a class="btn ghost sm" style="margin-left:auto" href="${D.meta.files.prompts}" download>Download all ten (.txt)</a></div>
     <div id="plist"></div>
     <h2>Try it on our sample data</h2>
-    ${dlCard('zip', 'Sample data pack', 'Unzip, select the Northwind folder in Cowork and run the prompts above. The zip includes the prompts and a README with the payroll password and the CFO\'s answers.', `<a class="btn teal" href="${D.meta.files.pack}" download>Download sample pack</a>`)}
+    ${dlCard('zip', 'Sample data pack', 'Unzip, select the Northwind folder in Claude and run the prompts above. The zip includes the prompts and a README with the payroll password and the CFO\'s answers.', `<a class="btn teal" href="${D.meta.files.pack}" download>Download sample pack</a>`)}
     ${dlCard('key', 'Answer key', 'Our correct books, so you can check what Claude produced: the trial balance should match to the penny.', `<a class="btn ghost" href="${D.meta.files.key}" download>Download answer key</a>`)}
     <h2>Good to know</h2><div class="facts">
       <div class="panel pad"><h3>Accuracy</h3><p>Every closing balance is checked against a statement with a balance assertion; the ledger won't load if one is off by a penny. On this sample the result matched the answer key exactly.</p></div>
